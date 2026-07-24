@@ -1,0 +1,47 @@
+\section{Fixed parameters: determinacy and its failure}
+
+The pointed invariant refines the ordinary parameters. Two fixed-parameter facts
+frame how much: at valuation two the local defect is pinned by a single modular
+rank, yet at valuation one the ordinary parameters---even the whole Gram
+envelope---do not determine $\Delt$ at all.
+
+\begin{theorem}[symmetric valuation two]\label{thm:v2}
+Let $D$ be symmetric of order $w=k-\lambda$ (distinct from the global
+$n=v-1$) and $\rho_p=\rank_{\FF_p}(\Cx)$. If $v_p(w)=2$ then
+\[
+\Delt(D)_p\ \cong\ (\ZZ/p)^{\,v+1-2\rho_p}\ \oplus\ (\ZZ/p^{2})^{\,\rho_p-1},
+\]
+so the intrinsic local exponent is $p^{2}$ exactly when $\rho_p\ge2$. For the
+calibration $\PG(2,p^{2})$ this recovers the Chandler--Sin--Xiang
+value~\cite{ChandlerSinXiang}; the exact $\PG(2,4)$ pointed form is
+$1^{10}2^{2}4^{9}$.
+\end{theorem}
+
+\begin{proof}
+For a symmetric design $|\Delt|^{2}=(k-\lambda)^{v-1}=w^{v-1}$, so
+$v_p(|\Delt_p|)=(v-1)v_p(w)/2=v-1$; as $v_p(w)=2$, $\Delt_p$ has exponent
+dividing $p^{2}$, say $\Delt_p\cong(\ZZ/p)^{a}\oplus(\ZZ/p^{2})^{b}$. The mod-$p$
+reduction of $\coker(\Cx)$ has dimension $v-\rho_p$, so $a+b=v-\rho_p$, while
+$v_p(|\Delt_p|)=a+2b=v-1$. Solving gives $b=\rho_p-1$ and $a=v+1-2\rho_p$. The
+$\PG(2,p^{2})$ multiplicities are the Chandler--Sin--Xiang invariant
+factors~\cite{ChandlerSinXiang}.
+\end{proof}
+
+\begin{theorem}[same-parameter separation]\label{thm:sep}
+The point/line design of $\PG(3,2)$ and the Bose averaging system on
+$\ZZ_5\times\ZZ_3$ are both simple $2$-$(15,3,1)$ designs with the same
+parameter Gram matrix, yet
+\[
+\Delt(\PG(3,2))\cong(\ZZ/2)^{4},\qquad \Delt(\text{Bose})=0,
+\]
+with full incidence Smith forms $1^{11}2^{3}6$ and $1^{14}3$. Hence ordinary
+parameters, and even the parameter Gram envelope, do not determine $\Delt$.
+\end{theorem}
+
+\begin{proof}
+Both constructions produce $35$ triples covering the $105$ pairs once. As
+$6\Delt=0$ with $6$ squarefree, the modular ranks $\rank_{\FF_2}(\Cx)$ and
+$\rank_{\FF_3}(\Cx)$ determine $\Delt$; they are $11,15$ for $\PG(3,2)$ and
+$15,15$ for Bose. The finite verification is reproduced by the included script
+(Appendix~\ref{sec:app-repro}).
+\end{proof}

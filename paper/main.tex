@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tocloft}
+% Compact the table of contents so it fits on the first page below the abstract.
+\setlength{\cftbeforesecskip}{0.5ex}
+\usepackage[hidelinks]{hyperref}
+% Reproducible PDF: suppress build timestamps and toolchain banners so the
+% compiled bytes are environment-independent (build with -jobname per REPRODUCE).
+\pdfinfoomitdate=1
+\pdfsuppressptexinfo=-1
+\pdftrailerid{}
+\hypersetup{pdftitle={The Selected Higher-Star Defect of a Design Incidence Lattice},
+  pdfauthor={Oleksiy Babanskyy}}
+\input{macros}
+
+\title{The Selected Higher-Star Defect of a Design Incidence Lattice}
+\author{Oleksiy Babanskyy}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a $t$-design $D$ with point-by-block incidence matrix $A$ we study the
+\emph{selected higher-star defect}
+$\Delt(D)=\Hk/\im_\ZZ(A)$, where $\Hk=\{z\in\ZZ^P:\sum z\equiv 0\ (\mathrm{mod}\ k)\}$
+and $k$ is the block size. With $d=\gcdop\{\lambda_r-\lambda_{r+1}\}$ over the
+star vector, we prove the sandwich $d\Hk\le\im_\ZZ(A)\le\Hk$, so $\Delt(D)$ is a
+finite abelian group killed by $d$, on at most $v-1$ generators, of order
+dividing $d^{v-1}$; it is the torsion of the retained-apex cokernel and fits a
+canonical sequence $0\to\Delt(D)\to\coker(A)\to\ZZ/k\to0$. A pointed
+presentation identifies $\Delt(D)$ with the cokernel of an explicit
+$v\times b$ matrix whose Gram matrix depends only on the ordinary design
+parameters, yielding a square-order bound and a bilinear discriminant form into
+which the dual defect embeds isotropically. Analyzing that form prime by prime
+gives: a complete good-prime decomposition and, at odd valuation one, a Witt
+obstruction that strictly beats square divisibility on an infinite family of
+$S(2,5,v)$; an exceptional-prime rank-three reduction; and, at the prime two in
+higher valuation, a metabolicity theorem showing the growing constituent is
+always split, so no binary analogue of the odd-prime \emph{discriminant-form}
+obstruction grows with $v$ (other binary obstructions are not excluded). We give fixed-parameter phenomena (a valuation-two formula, a same-parameter
+separation of two Steiner triple systems, and the complete $\STS(15)$ spectrum),
+a local Pasch transport law, an elementary realization theorem, and geometric
+applications. Classical ingredients are attributed throughout; no priority or
+firstness is claimed. The finite controls are reproduced by an included script.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/01_introduction}
+\input{sections/02_higher_star_defect}
+\input{sections/03_pointed_presentation}
+\input{sections/04_discriminant_form}
+\input{sections/05_parameter_phenomena}
+\input{sections/06_local_transport}
+\input{sections/07_applications}
+
+\appendix
+\input{sections/08_appendix_sts15_spectrum}
+\input{sections/09_appendix_realization}
+\input{sections/10_appendix_sqs8_example}
+\input{sections/11_appendix_reproducibility}
+
+\section*{Data and Code Availability}
+The companion repository \path{FCIG-Higher-Star-Defect-Design-Lattice} contains
+this \LaTeX{} source (main text and appendices), the compiled title-named PDF,
+and a single self-contained verifier \path{scripts/verify.py} that constructs the
+finite controls from scratch with no external data---the $\SQS(8)$ defect
+$(\ZZ/2)^{3}$, the same-parameter $\PG(3,2)$/Bose separation, and the M\"obius
+plane $M(2)$---computing each Smith form with \texttt{python-flint}, enforcing an
+independent modular cross-check, and asserting byte-identity against the frozen
+certificate \path{certificates/expected_verification.json}. The output is
+byte-identical under \texttt{python} and \texttt{python\ -O}. Classical inputs are
+attributed in \path{docs/SOURCE_LOCK.md} and the bibliography; the claim ledger
+and scope boundary live in \path{docs/}. See \path{REPRODUCE.md}.
+
+\begin{thebibliography}{99}
+\bibitem{Wilson} R.~M.~Wilson, \emph{A diagonal form for the incidence matrices
+  of $t$-subsets vs.\ $k$-subsets}, European J.\ Combin.\ \textbf{11} (1990),
+  609--615, DOI 10.1016/S0195-6698(13)80046-7.
+\bibitem{CFP2017} A.~Caggegi, G.~Falcone, M.~Pavone, \emph{On the additivity of
+  block designs}, J.\ Algebraic Combin.\ \textbf{45} (2017), 271--294.
+  DOI 10.1007/s10801-016-0707-5.
+\bibitem{BurattiNakic} M.~Buratti, A.~Naki\'c, \emph{Additivity of symmetric and
+  subspace $2$-designs}, Des.\ Codes Cryptogr.\ (2024), 3561--3572,
+  DOI 10.1007/s10623-024-01452-4.
+\bibitem{BMN2025} M.~Buratti, F.~Merola, A.~Naki\'c, \emph{Additive
+  combinatorial designs}, Des.\ Codes Cryptogr.\ \textbf{93} (2025), no.~7,
+  2717--2740, DOI 10.1007/s10623-025-01594-z.
+\bibitem{Sin2014} P.~Sin, \emph{Smith normal forms of incidence matrices},
+  arXiv:1401.8210.
+\bibitem{ChandlerSinXiang} D.~B.~Chandler, P.~Sin, Q.~Xiang, \emph{The invariant
+  factors of the incidence matrices of points and subspaces in $PG(n,q)$ and
+  $AG(n,q)$}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{358} (2006), 4935--4957.
+\bibitem{Wall1963} C.~T.~C.~Wall, \emph{Quadratic forms on finite groups, and
+  related topics}, Topology \textbf{2} (1963), 281--298.
+\bibitem{Nikulin} V.~V.~Nikulin, \emph{Integral symmetric bilinear forms and some
+  of their applications}, Math.\ USSR-Izv.\ \textbf{14} (1980), 103--167.
+\bibitem{ConwaySloane} J.~H.~Conway, N.~J.~A.~Sloane, \emph{Sphere Packings,
+  Lattices and Groups}, 3rd ed., Grundlehren \textbf{290}, Springer, 1999.
+\bibitem{Schmidt} K.-U.~Schmidt, \emph{Symmetric bilinear forms over finite
+  fields with applications to coding theory}, arXiv:1410.7184.
+\bibitem{Hanani1972} H.~Hanani, \emph{On balanced incomplete block designs with
+  blocks having five elements}, J.\ Combin.\ Theory Ser.\ A \textbf{12} (1972),
+  184--201.
+\bibitem{DoyenHubautVandensavel} J.~Doyen, X.~Hubaut, M.~Vandensavel,
+  \emph{Ranks of incidence matrices of Steiner triple systems}, Math.\ Z.\
+  \textbf{163} (1978), 251--259.
+\bibitem{ShiXuKrotov} M.~Shi, Y.~Xu, D.~Krotov, \emph{The number of the
+  non-full-rank Steiner triple systems}, J.\ Combin.\ Des.\ \textbf{27} (2019),
+  DOI 10.1002/jcd.21663.
+\bibitem{Sole1997} P.~Sol\'e, \emph{Codes, lattices and Steiner systems},
+  Electron.\ J.\ Combin.\ \textbf{4} (1997), no.~1, \#R6.
+\bibitem{TonchevWeishaar} V.~D.~Tonchev, R.~S.~Weishaar, \emph{Steiner triple
+  systems of order $15$ and their codes}, J.\ Statist.\ Plann.\ Inference
+  \textbf{58} (1997), 207--216.
+\bibitem{JungnickelTonchev} D.~Jungnickel, V.~D.~Tonchev, \emph{Counting Steiner
+  triple systems with classical parameters and prescribed rank}, J.\ Combin.\
+  Theory Ser.\ A \textbf{162} (2019), 10--33. arXiv:1709.06044.
+\bibitem{Keevash} P.~Keevash, \emph{The existence of designs}, arXiv:1401.3665.
+\bibitem{GraverJurkat} J.~E.~Graver, W.~B.~Jurkat, \emph{The module structure of
+  integral designs}, J.\ Combin.\ Theory Ser.\ A \textbf{15} (1973), 75--90.
+\bibitem{GrahamLiLi} R.~L.~Graham, S.-Y.~R.~Li, W.-C.~W.~Li, \emph{On the
+  structure of $t$-designs}, SIAM J.\ Algebraic Discrete Methods \textbf{1}
+  (1980), 8--14.
+\bibitem{AssmusKey1992} E.~F.~Assmus, Jr., J.~D.~Key, \emph{Hadamard matrices and
+  their designs: a coding-theoretic approach}, Trans.\ Amer.\ Math.\ Soc.\
+  \textbf{330} (1992), 269--293.
+\bibitem{Key} J.~D.~Key, \emph{Some applications of Magma in designs and codes:
+  oval designs, Hermitian unitals and generalized Reed--Muller codes}, J.\
+  Symbolic Comput.\ \textbf{31} (2001), 37--53, DOI 10.1006/jsco.1999.1007.
+\bibitem{Hiss} G.~Hiss, \emph{Hermitian function fields, classical unitals, and
+  representations of $3$-dimensional unitary groups}, Indag.\ Math.\ (N.S.)
+  \textbf{15} (2004), 223--243, DOI 10.1016/S0019-3577(04)90016-X.
+\bibitem{Ringe2008} C.~Ringe, \emph{\"Uber die Elementarteiler der
+  Inzidenzmatrix des Ree-Unitals}, Dissertation, RWTH Aachen, 2008; the
+  M\"obius/inversive-plane incidence Smith forms are in Ch.~8.
+\end{thebibliography}
+
+\end{document}

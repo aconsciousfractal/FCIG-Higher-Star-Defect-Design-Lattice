@@ -1,0 +1,150 @@
+\section{The discriminant form prime by prime}
+
+Throughout this section $E_p=\coker(G)_p$ with the pairing $\beta_G$, and
+$\ell_p$ denotes length. The maximal totally isotropic subgroup of $E_p$ bounds
+$\Delt_p$ from above; the square-order bound of Proposition~\ref{prop:gp} is the
+statement that this maximum is at most $|E_p|^{1/2}$.
+
+\subsection{Good primes}
+
+\begin{proposition}[good-prime decomposition]\label{prop:dp}
+For every prime $p\nmid n$, the pointed lattice splits $\beta_G$-orthogonally as
+\[
+E_p\ \cong\ \big(W_p/\alpha W_p,\ (x,y)\mapsto x\!\cdot\! y/\alpha\big)\ \perp\
+\big(\coker K_p,\ K_p^{-1}\big),\quad
+K_p=\begin{pmatrix}n(rk-\lambda)&nr\\ nr&b\end{pmatrix},
+\]
+where $W_p=\{x\in\ZZ_p^{n}:\mathbf 1^{T}x=0\}$; here $\det K_p=n\alpha r/k$.
+\end{proposition}
+
+\begin{proof}
+Since $p\nmid n$, the vector $\mathbf 1_n$ has unit norm $n$, so
+$\ZZ_p^{n}=W_p\perp\ZZ_p\mathbf 1_n$; adjoining the apex coordinate $\ZZ_p e_*$
+gives the orthogonal splitting $\ZZ_p^{v}=W_p\perp T_p$ with
+$T_p=\ZZ_p\mathbf 1_n\oplus\ZZ_p e_*$. Restricting $G$ from
+Proposition~\ref{prop:gp}: on $W_p$ (coordinate sum zero) it is $\alpha$ times
+the dot product, which is unimodular there; on $T_p$ it is the block $K_p$, whose
+determinant $n\alpha r/k$ follows from $(rk-\lambda)b-nr^{2}=\alpha r/k$. Passing
+to cokernels and inverse-Gram pairings in this orthogonal basis gives the stated
+sum; $\ell_p$ of each summand is read from the entry valuations of $K_p$.
+\end{proof}
+
+\begin{theorem}[odd valuation-one Witt obstruction]\label{thm:wi}
+Let $p$ be odd with $p\nmid k\lambda$ and $v_p(\alpha)=1$, and suppose $n=v-1$ is
+even, $n=2m$. Then $E_p\cong\FF_p^{\,n}$ carries a nondegenerate symmetric form,
+its dual selected defect is totally isotropic, and its minimal number of
+generators $\mu(\Delt_p)$ satisfies
+\[
+\mu(\Delt_p)\le m\quad\text{if }(-1)^m k\text{ is a square mod }p,\qquad
+\mu(\Delt_p)\le m-1\quad\text{otherwise.}
+\]
+The second line is one generator stronger than $|\Delt_p|^{2}\mid\det G$. For
+$v=5+60t$ with $t\ge1$ and $3\nmid t$, Hanani's theorem~\cite{Hanani1972}
+supplies an $S(2,5,v)$; then $n=4+60t$ is even, at $p=3$ one has $m=2+30t$,
+$(-1)^m k=5$ a nonsquare, so $\Delt_3\cong(\ZZ/3)^{\mu}$ with $\mu\le 1+30t$,
+whereas the coarse envelope permits $2+30t$. This is an infinite strict
+obstruction.
+\end{theorem}
+
+\begin{proof}
+Under the hypotheses $G\equiv\lambda J_v\pmod p$ has rank one, and
+$v_p(\det G)=n$ forces every nonunit invariant factor to have valuation one, so
+$E_p\cong\FF_p^{n}$; the scaled form $p\,\beta_G$ has determinant square class
+$k/u^{n}$ ($u=\alpha/p$), equal to $k$ when $n$ is even. By the classification of
+nondegenerate symmetric bilinear forms over a finite field~\cite{Schmidt}, a
+$2m$-dimensional such space has Witt index $m$ iff $(-1)^m$ times its determinant
+is a square, else $m-1$; the dual defect is a totally isotropic subspace, so its
+dimension is at most the Witt index. The $S(2,5,v)$ evaluation is direct.
+\end{proof}
+
+\subsection{Exceptional primes and the binary boundary}
+
+For $p\mid n$ the root/line split fails; a different primitive orthogonal
+splitting survives.
+
+\begin{theorem}[exceptional-prime reduction]\label{thm:xd}
+For every prime $p\mid n$ the pointed lattice is $\ZZ_p$-congruent to
+$\alpha D_{n-2}\perp C_p$, where $D_{n-2}=I+J$ has rank $n-2$ and determinant
+$n-1$ (a $p$-adic unit, so $D_{n-2}$ is unimodular over $\ZZ_p$), and
+\[
+C_p=\begin{pmatrix}\alpha n/(n-1)&-\alpha/(n-1)&0\\
+-\alpha/(n-1)&\lambda+\alpha/(n-1)&r\\ 0&r&b\end{pmatrix},\qquad
+\det C_p=\frac{\alpha^{2}r}{k(n-1)} .
+\]
+Hence all but at most three local invariant factors have valuation
+$v_p(\alpha)$, and the remaining three are read from the determinantal ideals of
+$C_p$. At $p=2$ the root block $\alpha D_{n-2}$ is type II; if $v_2(\alpha)=1$
+and $k\lambda$ is odd, the whole discriminant space is symplectic of dimension
+$n$, so bilinear isotropy meets---but does not beat---the square-order bound.
+\end{theorem}
+
+\begin{proof}
+Put $t=n-1$, a $p$-adic unit. The sublattice
+$U=\{x\in\ZZ_p^{n}:x_n=0,\ \sum_i x_i=0\}$ has dot-product Gram $D_{n-2}=I+J$
+($\det=n-1$, unimodular over $\ZZ_p$) and is $G$-orthogonal to
+$s=(\mathbf 1_n-e_n)/(n-1)$, $a=e_n-s$, and the apex $e_*$. A direct computation
+gives $\langle a,a\rangle_G=\alpha n/(n-1)$, $\langle a,s\rangle_G=-\alpha/(n-1)$,
+$\langle s,s\rangle_G=\lambda+\alpha/(n-1)$, $\langle a,e_*\rangle_G=0$, and
+$\langle s,e_*\rangle_G=r$, so in the local basis
+$(a,s,e_*)$ the residual Gram is exactly $C_p$; the determinant identity
+$\alpha^{n-2}\det D_{n-2}\det C_p=\alpha^{n}r/k=\det G$ together with adjugation
+gives $\det C_p$ and $C_p^{-1}$, and the three residual exponents are the
+successive determinantal-ideal valuations. This is a unimodular local change of
+basis, not the invalid zero-sum-root/constant-line split (whose index is
+divisible by $p$). At $p=2$, $D_{n-2}=I+J$ has even diagonal and odd determinant,
+hence gives a type-II $2^{v_2(\alpha)}$-modular constituent (standard $\ZZ_2$
+Jordan splitting~\cite{ConwaySloane}); in the valuation-one unit case
+$2G^{-1}\bmod2$ is alternating, so the discriminant space is symplectic and its
+maximal isotropic dimension equals the square-order bound.
+\end{proof}
+
+The remaining binary regime is higher valuation, $A:=v_2(\alpha)\ge2$. Here the
+growing constituent is the type-II $2^{A}$-modular group $(\ZZ/2^{A})^{n-2}$.
+
+\begin{lemma}[plateau metabolicity]\label{lem:plateau}
+Every homogeneous type-II $2^{A}$-modular symmetric bilinear plane $U(2^{A})$ or
+$V(2^{A})$ is metabolic for all $A\ge1$; consequently a type-II $2^{A}$-modular
+form of even rank is metabolic and carries a half-order isotropic subgroup.
+\end{lemma}
+
+\begin{proof}
+For $U(2^A)=2^{-A}\left[\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right]$ the
+cyclic group $\langle e_1\rangle$ is a Lagrangian. For
+$V(2^A)=2^{-A}\left[\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right]$, take
+$S=\langle(2^{c},0),(0,2^{c})\rangle$ when $A=2c$ and
+$S=\langle(2^{c},0),(0,2^{c+1})\rangle$ when $A=2c+1$; a direct check gives
+$\beta|_S\equiv0$ and $|S|=2^{A}$. A sum of metabolic forms is metabolic
+(sum of Lagrangians). This is a specialization of Wall's
+classification~\cite{Wall1963}.
+\end{proof}
+
+\begin{theorem}[binary higher-valuation confinement]\label{thm:xi}
+Let $A=v_2(\alpha)\ge2$ and $2\mid n$. In the decomposition
+$E_2\cong(\ZZ/2^{A})^{n-2}\perp\coker(C_2)$ of Theorem~\ref{thm:xd}, the root
+plateau is metabolic \textup(Lemma~\ref{lem:plateau}\textup), so
+\[
+\mathrm{maxiso}(E_2)\ \ge\ 2^{A(n-2)/2}\cdot\mathrm{maxiso}(\coker C_2),
+\]
+and the isotropy defect of $E_2$ is confined to the explicit rank-$\le3$
+residual block $C_2$, bounded by $(2A+v_2(r)-v_2(k))/2$, \emph{independently of}
+$n=v-1$. In particular there is no binary analogue of the $n$-growing strict
+family of Theorem~\ref{thm:wi}: at fixed parameter valuations the bilinear form
+loses at most a bounded amount, determined by a finite Jordan case split of
+$C_2$.
+\end{theorem}
+
+\begin{proof}
+Orthogonality is Theorem~\ref{thm:xd}. If $M$ is metabolic with Lagrangian
+$L_M$ then $\mathrm{maxiso}(M\perp N)\ge|L_M|\,\mathrm{maxiso}(N)$
+(take $L_M\perp T$ for $T\le N$ isotropic), giving the displayed bound with
+$M$ the plateau. Hence $|E_2|^{1/2}/\mathrm{maxiso}(E_2)\le
+|\coker C_2|^{1/2}$, and $\ell_2(\coker C_2)=v_2(\det C_2)=2A+v_2(r)-v_2(k)$ by
+Theorem~\ref{thm:xd}, all independent of $n$.
+\end{proof}
+
+Theorem~\ref{thm:xi} extends the valuation-one symplectic no-loss statement of
+Theorem~\ref{thm:xd} to every higher valuation and \emph{reduces} the remaining
+binary obstruction to the explicit rank-$\le3$ residual block $C_2$---a finite,
+$n$-independent case split, not a full classification of that block; the equality
+$\mathrm{maxiso}(E_2)=2^{A(n-2)/2}\mathrm{maxiso}(\coker C_2)$ can fail, so only
+the displayed one-sided bound is used.

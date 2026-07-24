@@ -1,0 +1,66 @@
+\section{The \texorpdfstring{$\STS(15)$}{STS(15)} defect spectrum}\label{sec:app-sts}
+
+This appendix records the complete realized defect spectrum on $15$ points, the
+general squarefree trichotomy, and the ternary augmentation splitting for triple
+designs. The first two are catalog-level consequences of the main results
+together with imported $p$-ranks; the third is proved here and is used by the
+ternary case of Appendix~\ref{sec:app-er}.
+
+\begin{theorem}[the $\STS(15)$ spectrum]\label{thm:sts15}
+For a Steiner triple system on $15$ points, $\rank_{\FF_3}(A)=14$ and
+$\rank_{\FF_3}(\Cx)=15$; hence $\Delt=(\ZZ/2)^{a}$ with $a=15-\rank_{\FF_2}(A)$.
+The realized binary ranks are $11,12,13,14,15$~\cite{AssmusKey1992}, so the
+complete realized spectrum is
+\[
+\Delt\in\{0,\ \ZZ/2,\ (\ZZ/2)^{2},\ (\ZZ/2)^{3},\ (\ZZ/2)^{4}\},
+\]
+with full incidence forms $1^{14}3,\ 1^{14}6,\ 1^{13}2\cdot6,\ 1^{12}2^{2}6,\
+1^{11}2^{3}6$ respectively. More generally, using that a nontrivial $\STS(v)$ has
+full $p$-rank for every prime $p\ge5$~\cite{DoyenHubautVandensavel} together with
+the no-simultaneous-deficiency theorem of Shi--Xu--Krotov~\cite{ShiXuKrotov},
+every nontrivial $\STS$ defect is a pure $2$-group, a pure $3$-group, or zero.
+\end{theorem}
+
+The $\STS(15)$ ternary statement is structural (a nonconstant ternary dual
+vector would partition the points into three $\STS(5)$'s, impossible); the five
+binary ranks are imported from Assmus--Key~\cite{AssmusKey1992} and
+Tonchev--Weishaar~\cite{TonchevWeishaar}, and the code/affine-lattice
+classification of the $80$ systems is Sol\'e's~\cite{Sole1997}. The general
+trichotomy rests on the cited $p$-rank inputs; no firstness attaches to the
+squarefree translation.
+
+\begin{proposition}[ternary augmentation splitting]\label{prop:split}
+For every nontrivial $2$-$(v,3,\lambda)$ design with $v>3$, the all-ones block
+row is not in the $\FF_3$-row span of the incidence matrix $A\colon\ZZ^{\mathcal
+B}\to\ZZ^{P}$; consequently the augmentation
+$\varepsilon\colon\coker(A)\to\ZZ/3$ splits, so
+$\coker(A)\cong\Delt(D)\oplus\ZZ/3$.
+\end{proposition}
+
+\begin{proof}
+Suppose $a\in\FF_3^{P}$ satisfies $\sum_{x\in B}a_x=1$ for every block $B$, and
+partition the points by fibre $P_i=\{x:a_x=i\}$, $n_i=|P_i|$ ($i\in\ZZ/3$). A
+triple sums to $1$ in $\FF_3$ only if its values form the multiset $(i,i,i+1)$;
+call such a block \emph{type $i$}. Each pair inside $P_i$ lies in $\lambda$
+blocks and forces the third point into $P_{i+1}$, giving $\lambda\binom{n_i}{2}$
+blocks of type $i$; counting the same blocks by their two $P_i$--$P_{i+1}$
+cross-pairs gives $2\cdot(\#\,\text{type }i)=\lambda\,n_i n_{i+1}$. Hence
+$\lambda\,n_i(n_i-1)=\lambda\,n_i n_{i+1}$, so $n_{i+1}=n_i-1$ whenever $n_i>0$.
+Applied cyclically over $i\in\ZZ/3$ this forces three strict decreases
+$n_0>n_1>n_2>n_0$, impossible unless some fibre is empty; and with an empty fibre
+the surviving instances of $n_{i+1}=n_i-1$ bound $n_0+n_1+n_2\le3$ (the maximum
+is the rotation $(0,2,1)$), contradicting $v>3$. Thus no such $a$ exists, so the
+all-ones row lies outside the $\FF_3$-row span of $A$. Row-space duality then
+supplies $y\in\FF_3^{\mathcal B}$ with $Ay=0$ in $\FF_3^{P}$ and
+$\mathbf 1_{\mathcal B}^{T}y=1$. Lift $y$ to $\tilde y\in\ZZ^{\mathcal B}$; then
+$A\tilde y\equiv0\pmod 3$, so $z:=A\tilde y/3\in\ZZ^{P}$ is integral, its class
+$[z]\in\coker(A)$ satisfies $3[z]=[A\tilde y]=0$, and, using
+$\mathbf 1_P^{T}A=3\,\mathbf 1_{\mathcal B}^{T}$ (each block has three points),
+\[
+\varepsilon([z])=\mathbf 1_P^{T}z\bmod 3
+=\tfrac{1}{3}\mathbf 1_P^{T}A\tilde y\bmod 3
+=\mathbf 1_{\mathcal B}^{T}\tilde y\bmod 3=1 .
+\]
+Hence $\ZZ/3\to\coker(A)$, $1\mapsto[z]$, is a section of $\varepsilon$, and
+$\coker(A)\cong\Delt(D)\oplus\ZZ/3$.
+\end{proof}

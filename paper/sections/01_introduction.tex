@@ -1,0 +1,72 @@
+\section{Introduction}
+
+Let $D=(P,\mathcal B)$ be a nonempty, possibly non-simple $t$-$(v,k,\lambda_t)$
+design with $2\le t\le k<v$, and let $A\in\ZZ^{P\times\mathcal B}$ be its
+point-by-block incidence matrix. Write $r=\lambda_1$, $\lambda=\lambda_2$,
+$\alpha=r-\lambda$, $n=v-1$, $b=|\mathcal B|$, and $L=\im_\ZZ(A)\subseteq\ZZ^P$
+for the integral column (image) lattice. Because every column has weight $k$,
+$L$ lies in the ``augmentation lattice''
+\[
+\Hk=\Big\{z\in\ZZ^P:\textstyle\sum_{x\in P}z_x\equiv 0\ (\mathrm{mod}\ k)\Big\}.
+\]
+
+\begin{definition}
+The \emph{selected higher-star defect} of $D$ is the finite (Section~2) abelian
+group $\Delt(D)=\Hk/L$.
+\end{definition}
+
+Equivalently, if $A^{+}$ is $A$ with an appended all-ones block row, then
+$\Delt(D)$ is the torsion subgroup of $\coker(A^{+})$; it measures the failure
+of the block columns to generate everything summing to $0\bmod k$. This paper
+organizes what can be said about $\Delt(D)$ around four questions:
+\emph{why is it finite; how is it presented and bounded; which groups occur at
+fixed parameters; and how does it change under a local design operation.}
+
+\paragraph{Results.} Theorem~\ref{thm:hs} bounds $\Delt(D)$ between $d\Hk$ and
+$\Hk$ and derives its exact sequences; Proposition~\ref{prop:gp} gives a pointed
+presentation and a parameter-only Gram/discriminant envelope. We then analyze the
+discriminant form prime by prime: the good-prime decomposition, the odd
+valuation-one Witt obstruction (Theorem~\ref{thm:wi}), which strictly improves
+square divisibility on an infinite $S(2,5,v)$ family; the exceptional-prime
+rank-three reduction (Theorem~\ref{thm:xd}); and the binary higher-valuation
+metabolicity theorem (Theorem~\ref{thm:xi}). We next show what fixed parameters
+do and do not determine---a valuation-two formula (Theorem~\ref{thm:v2}) and a
+same-parameter separation of two $\STS(15)$ (Theorem~\ref{thm:sep})---prove a
+local Pasch transport law (Theorem~\ref{thm:pt}), and record geometric
+applications. Three supporting developments are placed in appendices: the
+complete $\STS(15)$ defect spectrum (Theorem~\ref{thm:sts15}), the elementary
+realization theorem (Theorem~\ref{thm:er}), and a worked $\SQS(8)$ example
+(Appendix~\ref{sec:app-sqs}) with the reproducible finite controls.
+
+\paragraph{Relation to prior work; no firstness.} The higher-star diagonal
+form of $t$-vs-$k$ subset incidence is due to Wilson~\cite{Wilson}; the
+universal additive/incidence group of a design and its $t=2$ specialization are
+due to Caggegi--Falcone--Pavone~\cite{CFP2017}; the complete invariant factors
+of point/subspace incidence in $\PG(n,q)$ and $\AG(n,q)$ are due to
+Chandler--Sin--Xiang~\cite{ChandlerSinXiang} (for the general Smith-form
+landscape of incidence matrices see Sin's survey~\cite{Sin2014}); the Miquelian and even-order
+M\"obius incidence Smith forms are due to Ringe~\cite{Ringe2008}; the theory of
+finite symmetric bilinear forms is due to Wall~\cite{Wall1963} and the
+discriminant-form/overlattice framework to Nikulin~\cite{Nikulin}; exact
+existence of $S(2,5,v)$ carriers is Hanani's~\cite{Hanani1972}; the Hermitian
+unital incidence divisors are Hiss's~\cite{Hiss}; the $\STS(15)$ code/lattice
+classification is Sol\'e's~\cite{Sole1997}; and the order-$16$ Hadamard/rank
+data are Assmus--Key's~\cite{AssmusKey1992} (with the five $\STS(15)$ binary
+ranks also in Tonchev--Weishaar~\cite{TonchevWeishaar}). We claim no priority
+for any of these. The additive/zero-sum embedding theory initiated
+by~\cite{CFP2017} has since been extended substantially (e.g.\ the additivity of
+symmetric and subspace $2$-designs, Buratti--Naki\'c~\cite{BurattiNakic}, and the
+general theory of additive combinatorial designs,
+Buratti--Merola--Naki\'c~\cite{BMN2025}); we use
+only its basic augmentation setup and assert nothing new on the additive side.
+The nearest classical framework is the integral/null-design
+module theory of the \emph{complete} subset design, developed by
+Graver--Jurkat~\cite{GraverJurkat} and Graham--Li--Li~\cite{GrahamLiLi} and used
+in the recent integral-design literature (e.g.\ Keevash~\cite{Keevash}); the
+object here is instead the point-column lattice of a \emph{selected} design---a
+different lattice---and Theorem~\ref{thm:hs} concerns it, not the complete
+carrier. The contribution is the selected-design $\Delt$ package built on the
+imports above; a dated search located no exact prior equivalent of the combined
+selected-design statement, but the original Wilson and Graver--Jurkat texts were
+not inspected in full, so this is a negative search with an access caveat, not a
+firstness certificate.

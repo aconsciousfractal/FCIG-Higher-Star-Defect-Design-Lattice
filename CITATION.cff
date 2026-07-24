@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite it as below."
+title: "The Selected Higher-Star Defect of a Design Incidence Lattice"
+type: software
+authors:
+  - family-names: Babanskyy
+    given-names: Oleksiy
+    orcid: "https://orcid.org/0009-0001-6176-6208"
+repository-code: "https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice"
+license: MIT
+keywords:
+  - design-incidence-matrix
+  - smith-normal-form
+  - higher-star-defect
+  - discriminant-form
+  - witt-obstruction
+  - steiner-triple-system
+  - t-design
+  - reproducibility
+  - verified-exhibit
+abstract: >-
+  A theory of the selected higher-star defect Delta(D) = H_k / im_Z(A) of a
+  t-design incidence lattice: a sandwich bound and finiteness, a pointed
+  presentation with a parameter-only Gram/discriminant envelope, a prime-by-prime
+  analysis of the discriminant form (good-prime decomposition, an odd
+  valuation-one Witt obstruction strict on an infinite S(2,5,v) family, an
+  exceptional-prime rank-three reduction, and a binary higher-valuation
+  metabolicity theorem), fixed-parameter phenomena (a valuation-two formula, a
+  same-parameter separation of two STS(15), the complete STS(15) spectrum), a
+  Pasch transport law, an elementary realization theorem, and geometric
+  applications. Classical ingredients are attributed; no priority or firstness is
+  claimed. The self-contained finite controls are reproduced by an included
+  script.

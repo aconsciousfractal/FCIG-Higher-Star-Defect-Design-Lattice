@@ -1,0 +1,42 @@
+\section{Pointed presentation and the parameter envelope}
+
+Fix $x_0\in P$. Deleting the row $x_0$ from $A$ and appending the all-ones
+block row gives a full-row-rank $v\times b$ matrix $\Cx$; the basis
+$\{e_x-e_{x_0}\}\cup\{k e_{x_0}\}$ of $\Hk$ turns each incidence column into its
+coordinates away from $x_0$ followed by a final $1$.
+
+\begin{proposition}\label{prop:gp}
+$\Delt(D)\cong\coker(\Cx)$, and different choices of $x_0$ differ by unimodular
+row operations. The Gram matrix $G=\Cx\Cx^{T}$ depends only on the ordinary
+$2$-design parameters,
+\[
+G=\begin{pmatrix}\alpha I_{n}+\lambda J_{n} & r\,\mathbf 1_n\\
+r\,\mathbf 1_n^{T} & b\end{pmatrix},\qquad
+\det G=\alpha^{\,n}\,r/k,
+\]
+so $|\Delt(D)|^{2}$ divides $\alpha^{\,n}r/k$, and for every prime $p$,
+$2\,\ell_p(\Delt)\le n\,v_p(\alpha)+v_p(r)-v_p(k)$. Writing $R=\im(\Cx^{T})$ and
+$\bar R=(R\otimes\QQ)\cap\ZZ^{b}$, the group $\bar R/R$ is canonically
+Pontryagin dual to $\Delt(D)$ and embeds in $\coker(G)\cong R^{\#}/R$ as a
+totally isotropic subgroup for the bilinear discriminant form
+$\beta_G(z,w)=z^{T}G^{-1}w\bmod\ZZ$. \textup(No quadratic refinement is asserted
+without parity hypotheses.\textup)
+\end{proposition}
+
+\begin{proof}
+The pointed basis identifies $\Hk/L$ with $\coker(\Cx)$; the Gram computation is
+the standard $2$-design identity, and $\det G=\alpha^{n}r/k$ follows from
+$(rk-\lambda)b-nr^{2}=\alpha r/k$. Since $\Cx$ has full row rank $v$, its finite cokernel has order $|\Delt|$ equal
+to the greatest common divisor of the $v\times v$ minors of $\Cx$ (the top
+determinantal divisor $d_v$). By the Cauchy--Binet formula, $\det
+G=\det(\Cx\Cx^{T})$ equals the sum of the squares of those maximal minors; each
+minor is divisible by $|\Delt|$, so every summand is divisible by $|\Delt|^{2}$,
+whence $|\Delt|^{2}\mid\det G$. Taking $p$-adic valuations gives the primewise
+bound $2\ell_p(\Delt)\le v_p(\det G)=n\,v_p(\alpha)+v_p(r)-v_p(k)$. The perfect
+pairing on $\bar R/R$ and its identification with $\Delt^{\vee}$ are
+overlattice duality~\cite{Nikulin}; isotropy is $\beta_G|_{\bar R/R}=0$.
+\end{proof}
+
+Thus the abstract annihilation of Theorem~\ref{thm:hs} becomes a computable
+structural invariant: a finite bilinear form determined by the parameters, with
+the dual defect sitting inside it isotropically.

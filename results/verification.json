@@ -1,0 +1,105 @@
+{
+  "claim_scope": "self-contained finite controls; no novelty or firstness claim",
+  "controls": {
+    "Bose": {
+      "block_size": 3,
+      "blocks": 35,
+      "delta_invariant_factors": [],
+      "full_smith_invariant_factors": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "name": "Bose STS(15)",
+      "pointed_rank_F2": 15,
+      "pointed_rank_F3": 15,
+      "points": 15
+    },
+    "M2": {
+      "block_size": 3,
+      "blocks": 10,
+      "delta_invariant_factors": [],
+      "full_smith_invariant_factors": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "name": "Moebius M(2)=3-(5,3,1)",
+      "pointed_rank_F2": 5,
+      "pointed_rank_F3": 5,
+      "points": 5
+    },
+    "PG32": {
+      "block_size": 3,
+      "blocks": 35,
+      "delta_invariant_factors": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "full_smith_invariant_factors": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        6
+      ],
+      "name": "PG(3,2) STS(15)",
+      "pointed_rank_F2": 11,
+      "pointed_rank_F3": 15,
+      "points": 15
+    },
+    "SQS8": {
+      "block_size": 4,
+      "blocks": 14,
+      "delta_invariant_factors": [
+        2,
+        2,
+        2
+      ],
+      "full_smith_invariant_factors": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        4
+      ],
+      "name": "SQS(8)=AG(3,2)",
+      "pointed_rank_F2": 5,
+      "pointed_rank_F3": 8,
+      "points": 8
+    }
+  },
+  "schema": "FCIG-HIGHER-STAR-DEFECT-CONTROLS-v1",
+  "separation_confirmed": true,
+  "status": "PASS",
+  "terminal": "HIGHER_STAR_DEFECT_FINITE_CONTROLS_PASS"
+}

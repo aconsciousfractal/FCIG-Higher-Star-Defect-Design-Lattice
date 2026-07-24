@@ -1,0 +1,4 @@
+# Exact integer linear algebra (Smith / Hermite normal forms).
+# The independent modular-rank cross-check uses only the standard library.
+# Verified with python-flint 0.9.0; the frozen certificate reproduces on this version.
+python-flint>=0.9.0
