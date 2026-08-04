@@ -8,7 +8,8 @@ authors:
     orcid: "https://orcid.org/0009-0001-6176-6208"
 repository-code: "https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice"
 license: MIT
-date-released: "2026-07-24"
+version: "1.0.0"
+date-released: "2026-08-04"
 keywords:
   - design-incidence-matrix
   - smith-normal-form

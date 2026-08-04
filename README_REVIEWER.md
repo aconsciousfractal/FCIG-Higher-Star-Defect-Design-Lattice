@@ -33,9 +33,16 @@ randomness, no network.
    byte-identical to the frozen certificate` line. The output is byte-identical
    under `python` and `python -O`.
 
-3. **Check the manifest**: compare all file hashes against `MANIFEST_SHA256.txt`
-   (see `REPRODUCE.md`). The pinned object is the LaTeX source and the verifier,
-   not the toolchain-dependent PDF or the regenerated `results/`.
+3. **Check the package**:
+
+   ```bash
+   python scripts/verify_public_package.py
+   ```
+
+   This fail-closed check verifies the exact shipped inventory and every hash
+   in `MANIFEST_SHA256.txt`, including the canonical PDF and replay result. It
+   also checks release metadata, retired-path absence, and certificate byte
+   identity (see `REPRODUCE.md`).
 
 4. **Boundary** (read before citing): `docs/PUBLIC_CLAIM_BOUNDARY.md` and
    `docs/CLAIM_LEDGER.md`.

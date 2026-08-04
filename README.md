@@ -5,8 +5,10 @@ Companion package for the paper
 > **The Selected Higher-Star Defect of a Design Incidence Lattice**
 > Oleksiy Babanskyy, 2026.
 
-PDF: [`paper/`](paper/) (title-named, built from `paper/main.tex` +
-`paper/sections/`; see [`REPRODUCE.md`](REPRODUCE.md)).
+PDF: [`paper/The_Selected_Higher-Star_Defect_of_a_Design_Incidence_Lattice.pdf`](paper/The_Selected_Higher-Star_Defect_of_a_Design_Incidence_Lattice.pdf)
+(built from `paper/main.tex` + `paper/sections/`; see
+[`REPRODUCE.md`](REPRODUCE.md)). The archived public release is
+[`v1.0.0`](https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice/releases/tag/v1.0.0).
 
 ## What the paper proves
 
@@ -59,10 +61,10 @@ priority or firstness is claimed;** the contribution is the selected-design
 ```text
 paper/         main.tex, macros.tex, sections/01..11 (7 main + 4 appendix), <title>.pdf
 scripts/       verify.py (finite controls; python-flint + independent modular ranks)
+               verify_public_package.py (fail-closed inventory/release checker)
 certificates/  frozen expected certificate
 results/       verification.json (produced by verify.py)
-docs/          CLAIM_LEDGER.md, PUBLIC_CLAIM_BOUNDARY.md, SOURCE_LOCK.md,
-               RED_TEAM_REPORT.md, GATE_HISTORY.md
+docs/          CLAIM_LEDGER.md, PUBLIC_CLAIM_BOUNDARY.md, SOURCE_LOCK.md
 LICENSE (MIT), LICENSE_SCOPE.md, CITATION.cff, MANIFEST_SHA256.txt, requirements.txt
 ```
 
@@ -70,5 +72,7 @@ LICENSE (MIT), LICENSE_SCOPE.md, CITATION.cff, MANIFEST_SHA256.txt, requirements
 third-party boundary; this package embeds no external source or data.
 
 The bibliography is an inline `thebibliography` in `main.tex` (no `bibtex`
-pass). `MANIFEST_SHA256.txt` pins the LaTeX source and the verifier, but not the
-compiled PDF (TeX-toolchain-dependent) or `results/` (regenerated on replay).
+pass). `MANIFEST_SHA256.txt` pins the exact shipped inventory, including the
+compiled PDF and replay result. Run `python scripts/verify_public_package.py`
+to check every hash, release metadata, retired-path absence, and certificate
+byte identity.

@@ -11,3 +11,4 @@ paper/*.synctex.gz
 paper/*.fdb_latexmk
 paper/*.fls
 results/verification.log
+tmp/

@@ -40,11 +40,14 @@ present, the run additionally asserts byte-identity against it and prints a
 
 ## Check the manifest
 
-`MANIFEST_SHA256.txt` pins the environment-independent source of the package:
-the LaTeX source (`paper/main.tex`, `paper/macros.tex`, `paper/sections/*`), the
-verifier, the frozen certificate, and the documentation. It does **not** pin the
-compiled PDF (its bytes depend on the TeX distribution) or `results/`, which is
-regenerated on replay.
+`MANIFEST_SHA256.txt` pins the exact shipped inventory except the manifest
+itself, including the LaTeX source, verifier, frozen and replayed certificates,
+documentation, and canonical compiled PDF. The package checker fails closed on
+missing, unexpected, or changed files:
+
+```bash
+python scripts/verify_public_package.py
+```
 
 ```bash
 # Linux/macOS:
@@ -64,10 +67,10 @@ appendices). The bibliography is an inline
 passes resolve the cross-references and table of contents (a third is harmless).
 `main.tex` sets `\pdfinfoomitdate=1`, `\pdfsuppressptexinfo=-1`, and
 `\pdftrailerid{}`, so the build is timestamp-free and the PDF bytes are stable
-across rebuilds on a fixed TeX distribution. The PDF is **not** hash-pinned in
-`MANIFEST_SHA256.txt`, because PDF bytes still depend on the TeX distribution;
-the pinned, environment-independent object is the LaTeX source. Rebuild from
-`paper/` with the title-named job target:
+across rebuilds on a fixed TeX distribution. The released PDF is hash-pinned in
+`MANIFEST_SHA256.txt`; a rebuild with another TeX distribution may be visually
+equivalent without being byte-identical. Rebuild from `paper/` with the
+title-named job target:
 
 ```bash
 cd paper
