@@ -64,10 +64,10 @@ The manuscript is a multi-file LaTeX document: `paper/main.tex` inputs
 `paper/macros.tex` and `paper/sections/01..11` (seven main sections plus four
 appendices). The bibliography is an inline
 `thebibliography`, so **no `bibtex`/`biber` pass is needed** — two `pdflatex`
-passes resolve the cross-references and table of contents (a third is harmless).
+passes resolve the cross-references (a third is harmless).
 `main.tex` sets `\pdfinfoomitdate=1`, `\pdfsuppressptexinfo=-1`, and
 `\pdftrailerid{}`, so the build is timestamp-free and the PDF bytes are stable
-across rebuilds on a fixed TeX distribution. The released PDF is hash-pinned in
+across rebuilds on a fixed TeX distribution. The current PDF is hash-pinned in
 `MANIFEST_SHA256.txt`; a rebuild with another TeX distribution may be visually
 equivalent without being byte-identical. Rebuild from `paper/` with the
 title-named job target:
@@ -85,7 +85,9 @@ The verifier `scripts/verify.py` re-derives **only** the four self-contained
 finite controls listed above, from scratch, with no external data. Everything
 else the paper cites is imported, not recomputed here:
 
-- the higher-star diagonal form of `t`-vs-`k` subset incidence (Wilson) and the
+- the higher-incidence/star identities (Wilson 1982, reproduced by
+  Kiermaier–Wassermann 2023), the distinct complete-subset diagonal form
+  (Wilson 1990), and the
   universal additive/incidence group and its `t=2` case (Caggegi–Falcone–Pavone);
 - the invariant factors of point/subspace incidence in `PG(n,q)`/`AG(n,q)`,
   including the `PG(2,4)` valuation-two calibration (Chandler–Sin–Xiang);
@@ -98,5 +100,6 @@ else the paper cites is imported, not recomputed here:
   divisors (Hiss; Key).
 
 These classical ingredients are attributed in the paper and in `docs/SOURCE_LOCK.md`;
-they are never re-proved and no priority or firstness is claimed for them. The
+no priority or firstness is claimed for them. Elementary supporting facts,
+including the generic binary bilinear lemma, are proved in the manuscript. The
 theorems of Sections 2–4 and 6–7 use no finite census at all.

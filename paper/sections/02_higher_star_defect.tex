@@ -1,7 +1,10 @@
-\section{The higher-star defect}
+\section{The higher-star bound}\label{sec:stars}
 
-For $1\le r<t$ let $\lambda_r$ be the number of blocks on a fixed $r$-subset,
-and put $d=\gcdop\{\lambda_r-\lambda_{r+1}:1\le r<t\}$.
+The successive incidence numbers give the integer
+\[
+d=\gcdop\{\lambda_j-\lambda_{j+1}:1\le j<t\}.
+\]
+It controls the exponent of the selected quotient.
 
 \begin{theorem}\label{thm:hs}
 With the notation above,
@@ -21,35 +24,48 @@ $\coker(A^{+})\cong\ZZ\oplus\Delt(D)$ holds noncanonically.
 \end{theorem}
 
 \begin{proof}
-Column weight $k$ gives $L\le\Hk$. For the lower bound, let $u_R$ be the sum of
-all block columns containing a fixed $r$-set $R$; coordinate counting gives
-$u_R=\lambda_{r+1}\mathbf 1_P+(\lambda_r-\lambda_{r+1})\mathbf 1_R$. Hence, for
-distinct points $x,y$ and an $(r-1)$-set $S$ disjoint from them,
+Column weight $k$ gives $L\le\Hk$.
+
+For the lower bound, let $u_R$ be the sum of
+all block columns containing a fixed $j$-set $R$; coordinate counting gives
+$u_R=\lambda_{j+1}\mathbf 1_P+(\lambda_j-\lambda_{j+1})\mathbf 1_R$. Hence, for
+distinct points $x,y$ and an $(j-1)$-set $S$ disjoint from them,
 \[
-u_{S\cup\{x\}}-u_{S\cup\{y\}}=(\lambda_r-\lambda_{r+1})(e_x-e_y)\in L ,
+u_{S\cup\{x\}}-u_{S\cup\{y\}}=(\lambda_j-\lambda_{j+1})(e_x-e_y)\in L ,
 \]
-and B\'ezout over $1\le r<t$ yields $d(e_x-e_y)\in L$ for all $x,y$. Fix a block
+and B\'ezout over $1\le j<t$ yields $d(e_x-e_y)\in L$ for all $x,y$. Fix a block
 $B$ and a point $o\in B$; since $d\,\mathbf 1_B\in L$,
 \[
 d\,\mathbf 1_B-\sum_{x\in B\setminus\{o\}}d(e_x-e_o)=dk\,e_o\in L .
 \]
 The vectors $\{e_x-e_o:x\ne o\}$ together with $k\,e_o$ generate $\Hk$, and both
 $d(e_x-e_o)$ and $dk\,e_o$ lie in $L$, so $d\Hk\le L$. Thus $\Delt(D)$ is finite
-and killed by $d$. In $\Hk/L$ the block relation
+and killed by $d$.
+
+In $\Hk/L$ the block relation
 $\mathbf 1_B=k\,e_o+\sum_{x\in B\setminus\{o\}}(e_x-e_o)$ vanishes, expressing the
 class of $k\,e_o$ through the $v-1$ point-difference classes; hence $\Delt(D)$ is
 a quotient of $(\ZZ/d)^{\,v-1}$, so it has at most $v-1$ generators and
-$|\Delt(D)|$ divides $d^{\,v-1}$. The coordinate-sum map
+$|\Delt(D)|$ divides $d^{\,v-1}$.
+
+The coordinate-sum map
 $\coker(A)\to\ZZ/k$, $[z]\mapsto\sum z\bmod k$, has kernel $\Hk/L=\Delt(D)$ and is
-onto because $[e_x]\mapsto1$ generates $\ZZ/k$; and the augmentation identity
-$\mathbf 1_P^{T}A=k\,\mathbf 1_B^{T}$, via the one-row retained-apex lemma, gives
-$\coker(A^{+})\cong\ZZ\oplus\Delt(D)$ noncanonically, with $\Delt(D)$ its torsion.
+onto because $[e_x]\mapsto1$ generates $\ZZ/k$.
+
+Finally the primitive map
+$\ZZ\oplus\ZZ^P\to\ZZ$, $(a,z)\mapsto ka-\sum z$, has kernel identified
+with $\Hk$ by $z\mapsto(\sum z/k,z)$. The columns of $A^+$ belong to that
+kernel. Quotienting by them gives
+$0\to\Delt(D)\to\coker(A^+)\to\ZZ\to0$, which splits noncanonically
+and identifies $\Delt(D)$ canonically with the torsion subgroup.
 \end{proof}
 
 The star mechanism (the identity producing the coefficients
-$\lambda_r-\lambda_{r+1}$) is Wilson's~\cite{Wilson}; the universal group into
-which $\coker(A)$ maps, and the $t=2$ case, are~\cite{CFP2017}. The retained-row
-passage is elementary.
+$\lambda_r-\lambda_{r+1}$) is a specialization of Wilson's higher-incidence
+identity~\cite{Wilson1982}; see~\cite[Section 2.2, equation (2.1)]{KiermaierWassermann}
+with $e=1$ and $f=j$. The universal group presented by $A$, and the $t=2$
+point-difference identity, are in~\cite[Section 2]{CFP2017}. The gcd over
+star levels and the retained-row passage above are elementary deductions.
 
 \begin{corollary}\label{cor:d1}
 If $d=1$ then $L=\Hk$ and $\Delt(D)=0$, i.e.\ $\coker(A)\cong\ZZ/k$ and the full

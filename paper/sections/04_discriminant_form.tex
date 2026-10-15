@@ -29,6 +29,11 @@ to cokernels and inverse-Gram pairings in this orthogonal basis gives the stated
 sum; $\ell_p$ of each summand is read from the entry valuations of $K_p$.
 \end{proof}
 
+\subsection{The odd-prime Witt bound}
+
+The determinant class distinguishes the two possible Witt indices in even
+dimension. The following calculation makes that class explicit.
+
 \begin{theorem}[odd valuation-one Witt obstruction]\label{thm:wi}
 Let $p$ be odd with $p\nmid k\lambda$ and $v_p(\alpha)=1$, and suppose $n=v-1$ is
 even, $n=2m$. Then $E_p\cong\FF_p^{\,n}$ carries a nondegenerate symmetric form,
@@ -47,17 +52,30 @@ obstruction.
 \end{theorem}
 
 \begin{proof}
-Under the hypotheses $G\equiv\lambda J_v\pmod p$ has rank one, and
+The hypotheses give $r\equiv\lambda\pmod p$. The identities
+$r(k-1)=\lambda(v-1)$ and $bk=vr$ then give $v\equiv k$ and
+$b\equiv\lambda\pmod p$, respectively. Thus $G\equiv\lambda J_v\pmod p$ has rank one, and
 $v_p(\det G)=n$ forces every nonunit invariant factor to have valuation one, so
-$E_p\cong\FF_p^{n}$; the scaled form $p\,\beta_G$ has determinant square class
-$k/u^{n}$ ($u=\alpha/p$), equal to $k$ when $n$ is even. By the classification of
-nondegenerate symmetric bilinear forms over a finite field~\cite{Schmidt}, a
+$E_p\cong\FF_p^{n}$. Identify $(1/p)\ZZ/\ZZ$ with $\FF_p$ by
+$a/p\mapsto a\bmod p$. Direct inversion gives
+\[
+G^{-1}=\frac1\alpha
+\begin{pmatrix}I_n+J_n&-k\mathbf1_n\\
+-k\mathbf1_n^T&k(kr-\lambda)/r\end{pmatrix}.
+\]
+The first $n$ coordinate classes form a basis of $E_p$: the image of $G$
+modulo $p$ is the constant line in $\FF_p^v$. In this basis the induced
+finite-field form has matrix $u^{-1}(I_n+J_n)$, where $u=\alpha/p$.
+Its determinant is $v/u^n\equiv k/u^n\pmod p$, of square class $k$ for even $n$.
+
+By the classical determinant criterion~\cite[Theorem 5.2]{WilsonNotes}
+(see also~\cite{Schmidt}), a
 $2m$-dimensional such space has Witt index $m$ iff $(-1)^m$ times its determinant
 is a square, else $m-1$; the dual defect is a totally isotropic subspace, so its
 dimension is at most the Witt index. The $S(2,5,v)$ evaluation is direct.
 \end{proof}
 
-\subsection{Exceptional primes and the binary boundary}
+\subsection{Exceptional primes}
 
 For $p\mid n$ the root/line split fails; a different primitive orthogonal
 splitting survives.
@@ -91,60 +109,81 @@ $\alpha^{n-2}\det D_{n-2}\det C_p=\alpha^{n}r/k=\det G$ together with adjugation
 gives $\det C_p$ and $C_p^{-1}$, and the three residual exponents are the
 successive determinantal-ideal valuations. This is a unimodular local change of
 basis, not the invalid zero-sum-root/constant-line split (whose index is
-divisible by $p$). At $p=2$, $D_{n-2}=I+J$ has even diagonal and odd determinant,
+divisible by $p$).
+
+At $p=2$, $D_{n-2}=I+J$ has even diagonal and odd determinant,
 hence gives a type-II $2^{v_2(\alpha)}$-modular constituent (standard $\ZZ_2$
 Jordan splitting~\cite{ConwaySloane}); in the valuation-one unit case
 $2G^{-1}\bmod2$ is alternating, so the discriminant space is symplectic and its
 maximal isotropic dimension equals the square-order bound.
 \end{proof}
 
-The remaining binary regime is higher valuation, $A:=v_2(\alpha)\ge2$. Here the
-growing constituent is the type-II $2^{A}$-modular group $(\ZZ/2^{A})^{n-2}$.
+\subsection{The binary order bound}
 
-\begin{lemma}[plateau metabolicity]\label{lem:plateau}
-Every homogeneous type-II $2^{A}$-modular symmetric bilinear plane $U(2^{A})$ or
-$V(2^{A})$ is metabolic for all $A\ge1$; consequently a type-II $2^{A}$-modular
-form of even rank is metabolic and carries a half-order isotropic subgroup.
+For subgroup orders the binary case has a simpler general answer, independent
+of the design. Write $\mathrm{maxiso}(E)$ for the maximum order of a totally
+isotropic subgroup of a finite bilinear group $E$. A nonsingular group is
+\emph{metabolic} if it has an isotropic subgroup of order $|E|^{1/2}$; this
+does not require that subgroup to be a direct summand.
+
+\begin{lemma}[binary bilinear order bound]\label{lem:plateau}
+Let $E$ be a finite $2$-group with a nonsingular symmetric bilinear pairing
+$\beta:E\times E\to\QQ/\ZZ$, and put $\ell=\log_2|E|$. Then
+\[
+\mathrm{maxiso}(E)=2^{\lfloor\ell/2\rfloor}.
+\]
+In particular every such group of square order is metabolic.
 \end{lemma}
 
 \begin{proof}
-For $U(2^A)=2^{-A}\left[\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right]$ the
-cyclic group $\langle e_1\rangle$ is a Lagrangian. For
-$V(2^A)=2^{-A}\left[\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right]$, take
-$S=\langle(2^{c},0),(0,2^{c})\rangle$ when $A=2c$ and
-$S=\langle(2^{c},0),(0,2^{c+1})\rangle$ when $A=2c+1$; a direct check gives
-$\beta|_S\equiv0$ and $|S|=2^{A}$. A sum of metabolic forms is metabolic
-(sum of Lagrangians). This is a specialization of Wall's
-classification~\cite{Wall1963}.
+For every isotropic subgroup $S$, nonsingularity gives
+$|S|\,|S^\perp|=|E|$ and $S\le S^\perp$, proving the upper bound.
+
+If $|E|\ge4$, there is an isotropic involution. Indeed, if
+$\dim_{\FF_2}E[2]\ge2$, the map $x\mapsto\beta(x,x)$ from $E[2]$ to
+$(1/2)\ZZ/\ZZ$ is linear, since $2\beta(x,y)=0$, so it has a nonzero kernel.
+Otherwise $E$ is cyclic of order $2^s$, $s\ge2$; for a generator $g$ with
+$\beta(g,g)=a/2^s$, its involution has self-pairing
+$\beta(2^{s-1}g,2^{s-1}g)=a2^{s-2}=0$ in $\QQ/\ZZ$.
+
+Let $H$ be the isotropic subgroup of order two so obtained.
+The induced pairing on $H^\perp/H$ is nonsingular and this quotient has order
+$|E|/4$. Induction, starting at orders one and two, gives an isotropic subgroup
+there of order $2^{\lfloor(\ell-2)/2\rfloor}$. Its inverse image in $H^\perp$
+is isotropic of order $2^{\lfloor\ell/2\rfloor}$.
 \end{proof}
 
-\begin{theorem}[binary higher-valuation confinement]\label{thm:xi}
-Let $A=v_2(\alpha)\ge2$ and $2\mid n$. In the decomposition
-$E_2\cong(\ZZ/2^{A})^{n-2}\perp\coker(C_2)$ of Theorem~\ref{thm:xd}, the root
-plateau is metabolic \textup(Lemma~\ref{lem:plateau}\textup), so
+\begin{corollary}[binary order consequence]\label{thm:xi}
+For every design under consideration,
 \[
-\mathrm{maxiso}(E_2)\ \ge\ 2^{A(n-2)/2}\cdot\mathrm{maxiso}(\coker C_2),
+\mathrm{maxiso}(E_2)=
+2^{\left\lfloor(nv_2(\alpha)+v_2(r)-v_2(k))/2\right\rfloor}.
 \]
-and the isotropy defect of $E_2$ is confined to the explicit rank-$\le3$
-residual block $C_2$, bounded by $(2A+v_2(r)-v_2(k))/2$, \emph{independently of}
-$n=v-1$. In particular there is no binary analogue of the $n$-growing strict
-family of Theorem~\ref{thm:wi}: at fixed parameter valuations the bilinear form
-loses at most a bounded amount, determined by a finite Jordan case split of
-$C_2$.
-\end{theorem}
+Thus bilinear isotropy gives no smaller bound on the \emph{order} of
+$\Delt_2$ than the rounded square-divisibility bound. In particular, if
+$2\mid n$ and $A=v_2(\alpha)\ge1$, the decomposition of
+Theorem~\ref{thm:xd} satisfies
+\[
+\mathrm{maxiso}(E_2)=2^{A(n-2)/2}\,
+\mathrm{maxiso}(\coker C_2).
+\]
+\end{corollary}
 
 \begin{proof}
-Orthogonality is Theorem~\ref{thm:xd}. If $M$ is metabolic with Lagrangian
-$L_M$ then $\mathrm{maxiso}(M\perp N)\ge|L_M|\,\mathrm{maxiso}(N)$
-(take $L_M\perp T$ for $T\le N$ isotropic), giving the displayed bound with
-$M$ the plateau. Hence $|E_2|^{1/2}/\mathrm{maxiso}(E_2)\le
-|\coker C_2|^{1/2}$, and $\ell_2(\coker C_2)=v_2(\det C_2)=2A+v_2(r)-v_2(k)$ by
-Theorem~\ref{thm:xd}, all independent of $n$.
+Apply Lemma~\ref{lem:plateau} to $E_2$ and use
+$\ell_2(E_2)=v_2(\det G)$. In the exceptional decomposition the root
+constituent has even length $A(n-2)$, so the formula for its orthogonal sum
+with the residual group gives the second equality.
 \end{proof}
 
-Theorem~\ref{thm:xi} extends the valuation-one symplectic no-loss statement of
-Theorem~\ref{thm:xd} to every higher valuation and \emph{reduces} the remaining
-binary obstruction to the explicit rank-$\le3$ residual block $C_2$---a finite,
-$n$-independent case split, not a full classification of that block; the equality
-$\mathrm{maxiso}(E_2)=2^{A(n-2)/2}\mathrm{maxiso}(\coker C_2)$ can fail, so only
-the displayed one-sided bound is used.
+The rank-three reduction remains useful for invariant factors and the pairing,
+but is not needed for this order conclusion. Lemma~\ref{lem:plateau} is an
+elementary fact about finite bilinear groups, proved here for clarity; it is
+not a design-specific obstruction. It does not classify isotropically
+embeddable subgroup types or quadratic refinements.
+
+Metabolicity also must
+not be confused with hyperbolicity: the plane
+$V(4)=\frac14\left[\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right]$
+on $(\ZZ/4)^2$ has the Lagrangian $2(\ZZ/4)^2$, but has no isotropic element
+of order four and hence no free Lagrangian.

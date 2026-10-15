@@ -1,72 +1,106 @@
 \section{Introduction}
 
-Let $D=(P,\mathcal B)$ be a nonempty, possibly non-simple $t$-$(v,k,\lambda_t)$
-design with $2\le t\le k<v$, and let $A\in\ZZ^{P\times\mathcal B}$ be its
-point-by-block incidence matrix. Write $r=\lambda_1$, $\lambda=\lambda_2$,
-$\alpha=r-\lambda$, $n=v-1$, $b=|\mathcal B|$, and $L=\im_\ZZ(A)\subseteq\ZZ^P$
-for the integral column (image) lattice. Because every column has weight $k$,
-$L$ lies in the ``augmentation lattice''
+The incidence matrix of a block design records which points belong to each
+block. Its integral column lattice describes the integer point vectors that
+can be assembled from blocks. Every such vector has coordinate sum divisible
+by the block size, but this necessary condition need not be sufficient.
+The quotient measuring this failure is the object of this paper.
+
+Let $D=(P,\mathcal B)$ be a nonempty, possibly non-simple
+$t$-$(v,k,\lambda_t)$ design with $2\le t\le k<v$. Write $A$ for its
+point-by-block incidence matrix and set
 \[
-\Hk=\Big\{z\in\ZZ^P:\textstyle\sum_{x\in P}z_x\equiv 0\ (\mathrm{mod}\ k)\Big\}.
+L=\im_\ZZ(A),\qquad
+\Hk=\Big\{z\in\ZZ^P:\textstyle\sum_{x\in P}z_x\equiv0\pmod k\Big\}.
 \]
+Since every column has weight $k$, one has $L\le\Hk$.
 
 \begin{definition}
-The \emph{selected higher-star defect} of $D$ is the finite (Section~2) abelian
-group $\Delt(D)=\Hk/L$.
+The \emph{selected higher-star defect} of $D$ is the quotient
+$\Delt(D)=\Hk/L$.
 \end{definition}
 
-Equivalently, if $A^{+}$ is $A$ with an appended all-ones block row, then
-$\Delt(D)$ is the torsion subgroup of $\coker(A^{+})$; it measures the failure
-of the block columns to generate everything summing to $0\bmod k$. This paper
-organizes what can be said about $\Delt(D)$ around four questions:
-\emph{why is it finite; how is it presented and bounded; which groups occur at
-fixed parameters; and how does it change under a local design operation.}
+The word \emph{selected} refers to the actual blocks of $D$, rather than the
+complete collection of $k$-subsets. Theorem~\ref{thm:hs} shows that the defect
+is finite. It is the kernel of the coordinate-sum map
+$\coker(A)\to\ZZ/k$, so it removes the cyclic factor forced by the common
+block size. We study its bounds, its dependence on the chosen design and
+its behavior under local changes of blocks.
 
-\paragraph{Results.} Theorem~\ref{thm:hs} bounds $\Delt(D)$ between $d\Hk$ and
-$\Hk$ and derives its exact sequences; Proposition~\ref{prop:gp} gives a pointed
-presentation and a parameter-only Gram/discriminant envelope. We then analyze the
-discriminant form prime by prime: the good-prime decomposition, the odd
-valuation-one Witt obstruction (Theorem~\ref{thm:wi}), which strictly improves
-square divisibility on an infinite $S(2,5,v)$ family; the exceptional-prime
-rank-three reduction (Theorem~\ref{thm:xd}); and the binary higher-valuation
-metabolicity theorem (Theorem~\ref{thm:xi}). We next show what fixed parameters
-do and do not determine---a valuation-two formula (Theorem~\ref{thm:v2}) and a
-same-parameter separation of two $\STS(15)$ (Theorem~\ref{thm:sep})---prove a
-local Pasch transport law (Theorem~\ref{thm:pt}), and record geometric
-applications. Three supporting developments are placed in appendices: the
-complete $\STS(15)$ defect spectrum (Theorem~\ref{thm:sts15}), the elementary
-realization theorem (Theorem~\ref{thm:er}), and a worked $\SQS(8)$ example
-(Appendix~\ref{sec:app-sqs}) with the reproducible finite controls.
+\subsection{Bounds from the design parameters}
 
-\paragraph{Relation to prior work; no firstness.} The higher-star diagonal
-form of $t$-vs-$k$ subset incidence is due to Wilson~\cite{Wilson}; the
-universal additive/incidence group of a design and its $t=2$ specialization are
-due to Caggegi--Falcone--Pavone~\cite{CFP2017}; the complete invariant factors
-of point/subspace incidence in $\PG(n,q)$ and $\AG(n,q)$ are due to
-Chandler--Sin--Xiang~\cite{ChandlerSinXiang} (for the general Smith-form
-landscape of incidence matrices see Sin's survey~\cite{Sin2014}); the Miquelian and even-order
-M\"obius incidence Smith forms are due to Ringe~\cite{Ringe2008}; the theory of
-finite symmetric bilinear forms is due to Wall~\cite{Wall1963} and the
-discriminant-form/overlattice framework to Nikulin~\cite{Nikulin}; exact
-existence of $S(2,5,v)$ carriers is Hanani's~\cite{Hanani1972}; the Hermitian
-unital incidence divisors are Hiss's~\cite{Hiss}; the $\STS(15)$ code/lattice
-classification is Sol\'e's~\cite{Sole1997}; and the order-$16$ Hadamard/rank
-data are Assmus--Key's~\cite{AssmusKey1992} (with the five $\STS(15)$ binary
-ranks also in Tonchev--Weishaar~\cite{TonchevWeishaar}). We claim no priority
-for any of these. The additive/zero-sum embedding theory initiated
-by~\cite{CFP2017} has since been extended substantially (e.g.\ the additivity of
-symmetric and subspace $2$-designs, Buratti--Naki\'c~\cite{BurattiNakic}, and the
-general theory of additive combinatorial designs,
-Buratti--Merola--Naki\'c~\cite{BMN2025}); we use
-only its basic augmentation setup and assert nothing new on the additive side.
-The nearest classical framework is the integral/null-design
-module theory of the \emph{complete} subset design, developed by
-Graver--Jurkat~\cite{GraverJurkat} and Graham--Li--Li~\cite{GrahamLiLi} and used
-in the recent integral-design literature (e.g.\ Keevash~\cite{Keevash}); the
-object here is instead the point-column lattice of a \emph{selected} design---a
-different lattice---and Theorem~\ref{thm:hs} concerns it, not the complete
-carrier. The contribution is the selected-design $\Delt$ package built on the
-imports above; a dated search located no exact prior equivalent of the combined
-selected-design statement, but the original Wilson and Graver--Jurkat texts were
-not inspected in full, so this is a negative search with an access caveat, not a
-firstness certificate.
+Classical star identities give an annihilator obtained from the successive
+incidence numbers. After this elementary reduction in Section~\ref{sec:stars},
+we replace $A$ by a pointed matrix presenting the defect itself. Its Gram
+matrix depends only on the ordinary $2$-design parameters. The dual defect
+then sits as an isotropic subgroup of the associated finite bilinear group
+(Proposition~\ref{prop:gp}).
+
+This presentation gives two useful local calculations. At odd primes of
+valuation one, an explicit determinant class yields a Witt bound that is
+strictly stronger than square divisibility on an infinite family of
+$S(2,5,v)$ (Theorem~\ref{thm:wi}). When the usual zero-sum decomposition is
+unavailable, a rank-three matrix contains the remaining local information
+(Theorem~\ref{thm:xd}). For binary subgroup orders, the answer is simpler:
+a general bilinear lemma shows that isotropy alone gives no improvement on
+the square-divisibility bound (Corollary~\ref{thm:xi}).
+
+\subsection{Variation, local changes and realization}
+
+The parameters do not determine the defect. Two Steiner triple systems on
+$15$ points have the same parameter Gram matrix but different selected
+quotients (Theorem~\ref{thm:sep}). When a symmetric design has order of
+$p$-adic valuation two, however, one modular rank determines the local group
+(Theorem~\ref{thm:v2}). Section~\ref{sec:parameters} treats these two phenomena.
+
+A Pasch switch replaces four triples by four others on the same six points.
+Theorem~\ref{thm:pt} shows that it preserves every odd-primary part of the
+defect and changes the total order by a factor in $\{1/2,1,2\}$.
+The proof follows the two local column lattices after the unchanged blocks
+have been adjoined.
+
+The realization result has an infinite scope: every fixed elementary binary
+or ternary group occurs for all sufficiently large orders in the respective
+classical Steiner triple-system families (Theorem~\ref{thm:er}). Appendix~\ref{sec:app-er}
+proves the required asymptotic comparison of published exact-rank counts.
+The geometric applications and worked examples show both vanishing and
+nonzero defects.
+
+\subsection{Relation to earlier work}
+
+The higher-star identity comes from Wilson's incidence theory
+\cite{Wilson1982,KiermaierWassermann}. The universal additive group and the
+$t=2$ point-difference identity are treated by Caggegi--Falcone--Pavone
+\cite{CFP2017}. Later developments concern additive embeddings of designs
+\cite{BurattiNakic,BMN2025}; the point-injectivity questions in that theory
+are outside the scope of this paper.
+
+The complete-subset incidence matrix has a classical diagonal form
+\cite{Wilson}, and integral design modules are studied in
+\cite{GraverJurkat,GrahamLiLi,Keevash}. Here the column lattice belongs to a
+particular design. We use the standard theory of finite bilinear forms and
+lattice saturation \cite{Wall1963,Nikulin}; applying Witt theory to designs
+also has classical precedents \cite[Sections 5--6]{WilsonNotes}.
+
+The deductions developed below are the explicit pointed Gram calculation,
+its prime-local consequences, the Pasch quotient law and the fixed-defect
+asymptotic comparison. The star bound and binary order lemma are elementary
+supporting facts. Geometric Smith forms, finite rank spectra and enumeration
+theorems are imported where they are used; Sin's survey \cite{Sin2014}
+provides broader context for incidence Smith forms. These results concern
+the image lattice and bilinear isotropy. They neither classify relation
+kernels nor settle general realization or quadratic-refinement questions.
+
+\subsection{Notation}
+
+For $1\le j\le t$, let $\lambda_j$ be the number of blocks containing a
+fixed $j$-set. We use
+\[
+r=\lambda_1,\qquad \lambda=\lambda_2,\qquad
+\alpha=r-\lambda,\qquad n=v-1,\qquad b=|\mathcal B|.
+\]
+For a finite abelian group $F$, write $F_p$ for its $p$-primary part,
+$\ell_p(F)=\log_p|F_p|$ and $\mu(F)$ for its minimum number of generators.
+The symbols $\ZZ_p$ and $\FF_p$ denote the $p$-adic integers and the field
+of $p$ elements. Unless stated otherwise, a discriminant pairing is
+symmetric and bilinear with values in $\QQ/\ZZ$.

@@ -1,19 +1,37 @@
 \section{Reproducibility of the finite controls}\label{sec:app-repro}
 
-The self-contained finite controls---the $\SQS(8)$ defect $(\ZZ/2)^{3}$ with
-form $1^{4}2^{3}4$; the same-parameter $\PG(3,2)$/Bose separation, forms
-$1^{11}2^{3}6$ and $1^{14}3$ with defects $(\ZZ/2)^{4}$ and $0$; and the
-smallest M\"obius plane $M(2)=3\text{-}(5,3,1)$ with form $1^{4}3$---are
-reproduced from scratch by \texttt{scripts/verify.py}, which computes each Smith
-form with \texttt{python-flint} and cross-checks the binary and ternary ranks by
-an independent modular route; its certificate is byte-identical under
-\texttt{python} and \texttt{python -O}. The other finite forms cited in the text
-(the M\"obius ladder for $q\ge3$~\cite{Ringe2008}, the $\PG(2,4)$ valuation-two
-form and the general projective calibration~\cite{ChandlerSinXiang}, the
-Hermitian divisors~\cite{Hiss}, and the intermediate $\STS(15)$ ranks obtained
-by Pasch transport of Theorem~\ref{thm:pt}) are imported or follow from the
-stated results, not recomputed here. The general theorems of the main text---the
-sandwich, the pointed presentation, the prime-by-prime analysis, the transport
-law, and the M\"obius/Hermitian applications---use no finite census; the finite
-inputs are confined to the same-parameter separation (Theorem~\ref{thm:sep}) and
-the worked $\SQS(8)$ example (Appendix~\ref{sec:app-sqs}).
+The verifier \path{scripts/verify.py} constructs the following four designs
+from scratch, without external data. The middle column gives the full
+incidence Smith form; the last column gives the selected quotient.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Design & Incidence Smith form & $\Delt(D)$ \\
+\midrule
+$\SQS(8)=\AG(3,2)$ & $1^4 2^3 4$ & $(\ZZ/2)^3$ \\
+Point--line $\PG(3,2)$ & $1^{11}2^3 6$ & $(\ZZ/2)^4$ \\
+Bose $\STS(15)$ & $1^{14}3$ & $0$ \\
+M\"obius plane $M(2)$ & $1^4 3$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Smith forms are computed with \texttt{python-flint}. A separate modular
+implementation checks the binary and ternary ranks of the pointed
+presentation. The output is checked against the frozen certificate
+\path{certificates/expected_verification.json} and is byte-identical under
+\texttt{python} and \texttt{python -O}.
+
+The other cited finite data are imported: the larger M\"obius examples
+\cite{Ringe2008}, the projective-plane Smith forms \cite{ChandlerSinXiang},
+the Hermitian incidence divisors \cite{Hiss}, and the intermediate
+$\STS(15)$ ranks \cite{TonchevWeishaar,ShiXuKrotov}. They are not recomputed
+by this verifier.
+
+The finite computations support the two-system comparison in
+Theorem~\ref{thm:sep} and the worked example in Appendix~\ref{sec:app-sqs}.
+The general arguments for the star bound, pointed presentation, local
+bilinear analysis, Pasch transport and elementary realization are written
+proofs, using the classical inputs cited in the text. Finite checks do not
+establish their uniform conclusions.

@@ -1,19 +1,25 @@
 # Reviewer Quickstart
 
-About fifteen minutes: a sub-second replay plus reading. This is a theory paper
+The finite replay is short; checking the general proofs is a separate task.
+This is a theory paper
 with a small, self-contained reproducibility layer — no external data, no
 randomness, no network.
 
 1. **Read the paper**: `paper/The_Selected_Higher-Star_Defect_of_a_Design_Incidence_Lattice.pdf`.
-   The spine is proved with **no** finite census: the sandwich and exact
-   sequences (Thm 2.1, §2); the pointed presentation and parameter/discriminant
-   envelope (Prop 3.1, §3, with the square bound by Cauchy–Binet); the
-   prime-by-prime analysis (good-prime Prop 4.1, Witt Thm 4.2, exceptional-prime
-   Thm 4.3, binary metabolicity Lem 4.4/Thm 4.5, §4); the valuation-two formula
-   (Thm 5.1) and same-parameter separation (Thm 5.2, §5); Pasch transport
-   (Thm 6.1, §6); Möbius/Hermitian applications (§7); and the appendices — the
-   STS(15) spectrum with the ternary splitting (Thm A.1, Prop A.2), the
-   realization theorem (Thm B.1), the worked SQS(8) example, and reproducibility.
+   Start with Sections 1.1–1.2 for the mathematical results, 1.3 for the
+   relationship to prior work, and 1.4 for notation. Then follow the argument:
+
+   | Location | Purpose |
+   |---|---|
+   | §§2–3 | Star bound, exact sequences and pointed Gram/discriminant presentation |
+   | §§4.1–4.4 | Good primes, odd-prime Witt bound, exceptional reduction and the general binary order lemma |
+   | §§5–7 | Fixed-parameter behavior, Pasch switches and geometric applications |
+   | Appendices A–C | STS spectrum and augmentation splitting, infinite elementary realization, worked SQS(8) example |
+   | Appendix D | Four finite controls, checks performed and imported data |
+
+   The theorem numbering is unchanged. The general arguments are written
+   proofs; the two-system comparison (Theorem 5.2) uses the stated finite
+   computation. Keep this distinction when assessing the companion.
 
 2. **Replay the finite controls** (<1 s; Python 3.10+, `python-flint`):
 
@@ -41,7 +47,7 @@ randomness, no network.
 
    This fail-closed check verifies the exact shipped inventory and every hash
    in `MANIFEST_SHA256.txt`, including the canonical PDF and replay result. It
-   also checks release metadata, retired-path absence, and certificate byte
+   also checks revision metadata, retired-path absence, and certificate byte
    identity (see `REPRODUCE.md`).
 
 4. **Boundary** (read before citing): `docs/PUBLIC_CLAIM_BOUNDARY.md` and
@@ -50,12 +56,18 @@ randomness, no network.
      cokernel `Delta = coker(C_x0)`; the relation kernels are not part of any
      claim.
    - Discriminant isotropy statements are **bilinear**; no quadratic (Arf)
-     refinement is asserted, and the binary no-growth result is only for the
-     discriminant-form obstruction (other binary obstructions are not excluded).
+     refinement is asserted. The binary lemma concerns maximum subgroup order,
+     not which abstract subgroup types admit isotropic embeddings.
    - No realizability beyond the elementary `(Z/2)^a`/`(Z/3)^b` targets;
      nonsquarefree exponents and general realizability are out of scope.
    - **No priority or firstness** is claimed; dated negative searches are recorded
-     as such.
+     as such. The explicit selected-design deductions are distinguished from
+     classical inputs in the introduction and claim ledger.
+
+5. **Read the revision and AI disclosure**: `docs/REVISION_NOTES.md` and
+   `AI_USE.md`. Revision 1.0.1 corrects the binary comparison and
+   supplies the missing moving-parameter proof in Appendix B. AI review and
+   finite replay are not independent specialist verification.
 
    Every imported input is attributed in the bibliography and
    `docs/SOURCE_LOCK.md` (Wilson; Caggegi–Falcone–Pavone; Chandler–Sin–Xiang;

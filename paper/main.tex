@@ -1,12 +1,13 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{tocloft}
-% Compact the table of contents so it fits on the first page below the abstract.
-\setlength{\cftbeforesecskip}{0.5ex}
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
 \usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks
 % Reproducible PDF: suppress build timestamps and toolchain banners so the
-% compiled bytes are environment-independent (build with -jobname per REPRODUCE).
+% compiled bytes are stable on a fixed TeX distribution (see REPRODUCE).
 \pdfinfoomitdate=1
 \pdfsuppressptexinfo=-1
 \pdftrailerid{}
@@ -22,31 +23,23 @@
 \maketitle
 
 \begin{abstract}
-For a $t$-design $D$ with point-by-block incidence matrix $A$ we study the
-\emph{selected higher-star defect}
-$\Delt(D)=\Hk/\im_\ZZ(A)$, where $\Hk=\{z\in\ZZ^P:\sum z\equiv 0\ (\mathrm{mod}\ k)\}$
-and $k$ is the block size. With $d=\gcdop\{\lambda_r-\lambda_{r+1}\}$ over the
-star vector, we prove the sandwich $d\Hk\le\im_\ZZ(A)\le\Hk$, so $\Delt(D)$ is a
-finite abelian group killed by $d$, on at most $v-1$ generators, of order
-dividing $d^{v-1}$; it is the torsion of the retained-apex cokernel and fits a
-canonical sequence $0\to\Delt(D)\to\coker(A)\to\ZZ/k\to0$. A pointed
-presentation identifies $\Delt(D)$ with the cokernel of an explicit
-$v\times b$ matrix whose Gram matrix depends only on the ordinary design
-parameters, yielding a square-order bound and a bilinear discriminant form into
-which the dual defect embeds isotropically. Analyzing that form prime by prime
-gives: a complete good-prime decomposition and, at odd valuation one, a Witt
-obstruction that strictly beats square divisibility on an infinite family of
-$S(2,5,v)$; an exceptional-prime rank-three reduction; and, at the prime two in
-higher valuation, a metabolicity theorem showing the growing constituent is
-always split, so no binary analogue of the odd-prime \emph{discriminant-form}
-obstruction grows with $v$ (other binary obstructions are not excluded). We give fixed-parameter phenomena (a valuation-two formula, a same-parameter
-separation of two Steiner triple systems, and the complete $\STS(15)$ spectrum),
-a local Pasch transport law, an elementary realization theorem, and geometric
-applications. Classical ingredients are attributed throughout; no priority or
-firstness is claimed. The finite controls are reproduced by an included script.
+For a nonempty $t$-$(v,k,\lambda_t)$ design with $2\le t\le k<v$, let $A$ be
+its point-by-block incidence matrix. We study the finite quotient
+$\Delt(D)=H_k/\im_\ZZ(A)$, where $H_k$ consists of the integer point vectors
+whose coordinate sum is divisible by $k$. A pointed presentation embeds the
+dual quotient isotropically in a bilinear discriminant group determined by
+the design parameters. This gives an odd-prime bound that improves square
+divisibility by one generator on an infinite family of $S(2,5,v)$, together
+with a rank-three reduction at exceptional primes. At the prime two, a
+general bilinear lemma shows that isotropy gives no further bound on the
+order. We also prove that a Pasch switch preserves the odd-primary quotient
+and changes its order by at most a factor of two. Finally, published
+exact-rank bounds and an explicit asymptotic comparison realize every fixed
+elementary binary or ternary group at all sufficiently large orders in the
+corresponding Steiner triple-system families. Classical incidence identities,
+Smith forms and enumeration results provide the inputs; four finite examples
+are reproduced by a companion verifier.
 \end{abstract}
-
-\tableofcontents
 
 \input{sections/01_introduction}
 \input{sections/02_higher_star_defect}
@@ -62,24 +55,41 @@ firstness is claimed. The finite controls are reproduced by an included script.
 \input{sections/10_appendix_sqs8_example}
 \input{sections/11_appendix_reproducibility}
 
-\section*{Data and Code Availability}
+\section*{Data and code availability}
 The \href{https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice}{companion repository}
-and its \href{https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice/releases/tag/v1.0.0}{archived v1.0.0 release} contain
-this \LaTeX{} source (main text and appendices), the compiled title-named PDF,
-and a single self-contained verifier \path{scripts/verify.py} that constructs the
-finite controls from scratch with no external data---the $\SQS(8)$ defect
-$(\ZZ/2)^{3}$, the same-parameter $\PG(3,2)$/Bose separation, and the M\"obius
-plane $M(2)$---computing each Smith form with \texttt{python-flint}, enforcing an
-independent modular cross-check, and asserting byte-identity against the frozen
-certificate \path{certificates/expected_verification.json}. The output is
-byte-identical under \texttt{python} and \texttt{python\ -O}. Classical inputs are
-attributed in \path{docs/SOURCE_LOCK.md} and the bibliography; the claim ledger
-and scope boundary live in \path{docs/}. See \path{REPRODUCE.md}.
+contains the \LaTeX{} source, compiled paper, verifier and frozen certificate.
+Appendix~\ref{sec:app-repro} describes the finite checks and their scope;
+\path{REPRODUCE.md} gives the commands and dependencies. The manuscript is
+licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0};
+the original companion code is licensed under MIT.
+
+\section*{Use of artificial intelligence}
+The author used OpenAI Codex substantially in the mathematical exploration,
+development and checking of arguments, verification code, and manuscript
+drafting and revision. Exact model versions for the original research were
+not recorded. The October 2026 revision also used GPT-6.1 Sol review agents
+and a subsequent GPT-6 Astra review to examine the proofs, sources, and
+finite computations. The author directed
+the project and is responsible for the submitted claims. These AI-assisted
+checks and reproducible computations do not constitute independent specialist
+review or a formal verification of the general proofs.
 
 \begin{thebibliography}{99}
+\raggedright
+\bibitem{Wilson1982} R.~M.~Wilson, \emph{Incidence matrices of $t$-designs},
+  Linear Algebra Appl.\ \textbf{46} (1982), 73--82,
+  DOI 10.1016/0024-3795(82)90027-1.
+\bibitem{KiermaierWassermann} M.~Kiermaier, A.~Wassermann,
+  \emph{Higher incidence matrices and tactical decomposition matrices},
+  Glasnik Mat.\ \textbf{58(78)} (2023), 181--200,
+  DOI 10.3336/gm.58.2.03.
 \bibitem{Wilson} R.~M.~Wilson, \emph{A diagonal form for the incidence matrices
   of $t$-subsets vs.\ $k$-subsets}, European J.\ Combin.\ \textbf{11} (1990),
   609--615, DOI 10.1016/S0195-6698(13)80046-7.
+\bibitem{WilsonNotes} R.~M.~Wilson, \emph{Codes and modules associated with
+  designs and $t$-uniform hypergraphs: Abstract and summary}, lecture notes,
+  2011, Sections 5--6.
+  \url{https://www.math.uniri.hr/NATO-ASI/abstracts/wilson.pdf}.
 \bibitem{CFP2017} A.~Caggegi, G.~Falcone, M.~Pavone, \emph{On the additivity of
   block designs}, J.\ Algebraic Combin.\ \textbf{45} (2017), 271--294.
   DOI 10.1007/s10801-016-0707-5.
@@ -108,9 +118,9 @@ and scope boundary live in \path{docs/}. See \path{REPRODUCE.md}.
 \bibitem{DoyenHubautVandensavel} J.~Doyen, X.~Hubaut, M.~Vandensavel,
   \emph{Ranks of incidence matrices of Steiner triple systems}, Math.\ Z.\
   \textbf{163} (1978), 251--259.
-\bibitem{ShiXuKrotov} M.~Shi, Y.~Xu, D.~Krotov, \emph{The number of the
+\bibitem{ShiXuKrotov} M.~Shi, L.~Xu, D.~S.~Krotov, \emph{The number of the
   non-full-rank Steiner triple systems}, J.\ Combin.\ Des.\ \textbf{27} (2019),
-  DOI 10.1002/jcd.21663.
+  571--585, DOI 10.1002/jcd.21663.
 \bibitem{Sole1997} P.~Sol\'e, \emph{Codes, lattices and Steiner systems},
   Electron.\ J.\ Combin.\ \textbf{4} (1997), no.~1, \#R6.
 \bibitem{TonchevWeishaar} V.~D.~Tonchev, R.~S.~Weishaar, \emph{Steiner triple
@@ -120,6 +130,13 @@ and scope boundary live in \path{docs/}. See \path{REPRODUCE.md}.
   triple systems with classical parameters and prescribed rank}, J.\ Combin.\
   Theory Ser.\ A \textbf{162} (2019), 10--33. arXiv:1709.06044.
 \bibitem{Keevash} P.~Keevash, \emph{The existence of designs}, arXiv:1401.3665.
+\bibitem{KeevashCounting} P.~Keevash, \emph{Counting designs},
+  J.\ Eur.\ Math.\ Soc.\ \textbf{20} (2018), 903--927,
+  DOI 10.4171/JEMS/779.
+\bibitem{FerberJainSudakov} A.~Ferber, V.~Jain, B.~Sudakov,
+  \emph{Number of $1$-factorizations of regular high-degree graphs},
+  Combinatorica \textbf{40} (2020), 315--344,
+  DOI 10.1007/s00493-019-3970-y.
 \bibitem{GraverJurkat} J.~E.~Graver, W.~B.~Jurkat, \emph{The module structure of
   integral designs}, J.\ Combin.\ Theory Ser.\ A \textbf{15} (1973), 75--90.
 \bibitem{GrahamLiLi} R.~L.~Graham, S.-Y.~R.~Li, W.-C.~W.~Li, \emph{On the

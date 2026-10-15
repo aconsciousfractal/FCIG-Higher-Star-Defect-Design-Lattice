@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed checker for the v1.0.0 public package."""
+"""Fail-closed checker for manuscript/companion revision 1.0.1."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "MANIFEST_SHA256.txt"
 CANONICAL_PDF = "paper/The_Selected_Higher-Star_Defect_of_a_Design_Incidence_Lattice.pdf"
-EXPECTED_RELEASE = "v1.0.0"
+EXPECTED_VERSION = "1.0.1"
 EXPECTED_CERTIFICATE_SHA256 = (
     "13BBF7B95BD9404CB6190F686BDD2D5FE31F53426B42D0E86D502DAA612BCCAE"
 )
@@ -69,8 +69,8 @@ def manifest_entries() -> dict[str, str]:
 def write_manifest() -> None:
     names = [name for name in package_files() if name != "MANIFEST_SHA256.txt"]
     lines = [
-        "# SHA-256 manifest for the Higher-Star-Defect public package v1.0.0",
-        "# Generated 2026-08-04; exact inventory except this manifest file.",
+        "# SHA-256 manifest for the Higher-Star-Defect revision 1.0.1",
+        "# Revised 2026-10-15; exact inventory except this manifest file.",
     ]
     lines.extend(f"{sha256(ROOT / name).lower()}  {name}" for name in names)
     MANIFEST.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
@@ -117,10 +117,10 @@ def verify() -> None:
 
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    if 'version: "1.0.0"' not in citation or 'date-released: "2026-08-04"' not in citation:
-        raise RuntimeError("release metadata mismatch")
-    if EXPECTED_RELEASE not in readme:
-        raise RuntimeError("README release link missing")
+    if f'version: "{EXPECTED_VERSION}"' not in citation or 'date-released:' in citation:
+        raise RuntimeError("revision metadata mismatch")
+    if EXPECTED_VERSION not in readme or "unreleased" in readme:
+        raise RuntimeError("README revision declaration mismatch")
 
     frozen = ROOT / "certificates/expected_verification.json"
     result = ROOT / "results/verification.json"

@@ -8,8 +8,16 @@ authors:
     orcid: "https://orcid.org/0009-0001-6176-6208"
 repository-code: "https://github.com/aconsciousfractal/FCIG-Higher-Star-Defect-Design-Lattice"
 license: MIT
-version: "1.0.0"
-date-released: "2026-08-04"
+version: "1.0.1"
+preferred-citation:
+  type: unpublished
+  title: "The Selected Higher-Star Defect of a Design Incidence Lattice"
+  authors:
+    - family-names: Babanskyy
+      given-names: Oleksiy
+      orcid: "https://orcid.org/0009-0001-6176-6208"
+  year: 2026
+  notes: "Manuscript CC BY 4.0; companion revision 1.0.1. See LICENSE_SCOPE.md."
 keywords:
   - design-incidence-matrix
   - smith-normal-form
@@ -26,8 +34,8 @@ abstract: >-
   presentation with a parameter-only Gram/discriminant envelope, a prime-by-prime
   analysis of the discriminant form (good-prime decomposition, an odd
   valuation-one Witt obstruction strict on an infinite S(2,5,v) family, an
-  exceptional-prime rank-three reduction, and a binary higher-valuation
-  metabolicity theorem), fixed-parameter phenomena (a valuation-two formula, a
+  exceptional-prime rank-three reduction, and the general binary bilinear
+  order bound), fixed-parameter phenomena (a valuation-two formula, a
   same-parameter separation of two STS(15), the complete STS(15) spectrum), a
   Pasch transport law, an elementary realization theorem, and geometric
   applications. Classical ingredients are attributed; no priority or firstness is

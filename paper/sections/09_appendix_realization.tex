@@ -1,22 +1,95 @@
 \section{Realization of elementary defects}\label{sec:app-er}
 
+The finite spectra above extend to infinite families. The key step is to
+compare exact-rank counting bounds while holding the desired defect fixed.
+
 \begin{theorem}[elementary realization]\label{thm:er}
-For every fixed $a\ge1$, all sufficiently large $n$ admit an $\STS(2^{n}-1)$
-with $\Delt\cong(\ZZ/2)^{a}$; for every fixed $b\ge1$, all sufficiently large
-$n$ admit an $\STS(3^{n})$ with $\Delt\cong(\ZZ/3)^{b}$.
+For every fixed $a\ge1$, all sufficiently large $h$ admit an $\STS(2^{h}-1)$
+with $\Delt\cong(\ZZ/2)^{a}$; for every fixed $c\ge1$, all sufficiently large
+$h$ admit an $\STS(3^{h})$ with $\Delt\cong(\ZZ/3)^{c}$.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:sts15}, $\Delt=(\ZZ/2)^{a}$ is exactly a binary rank
-deficiency $a$ of the incidence matrix, and $(\ZZ/3)^{b}$ a ternary deficiency
-$b$; realizing the group is realizing the rank. Jungnickel and
-Tonchev~\cite{JungnickelTonchev} enumerate the Steiner triple systems with
-classical parameters and prescribed $2$-rank (resp.\ $3$-rank), and show that for
-each fixed deficiency the number of such systems grows without bound as the order
-increases. Hence, for every fixed $a$ (resp.\ $b$), systems of exactly that
-deficiency exist for all sufficiently large $n$; valuation one, the $\STS$
-primary purity of Theorem~\ref{thm:sts15}, and the ternary augmentation splitting
-of Proposition~\ref{prop:split} then convert the deficiency into the stated
-homocyclic group. The prescribed-rank carriers and their counts are
-Jungnickel--Tonchev's; only the translation into $\Delt$ is added here.
+We prove positivity of the exact-rank difference bounds of
+Jungnickel--Tonchev~\cite[Theorems 4.4 and 4.12]{JungnickelTonchev} in the
+moving-parameter regime needed here. Their parameter $n$ is denoted by $h$
+in this appendix, to distinguish it from $v-1$.
+
+\smallskip
+\noindent\textbf{1. Counting inputs.} Let $N_1(q)$ count Steiner triple systems on a fixed
+$q$-point set, $N_2(q)$ count one-factorizations of the labeled $K_q$, and
+$N_3(q)$ count transversal designs on three specified groups of size $q$
+(equivalently, labeled Latin squares). The required asymptotics are
+\begin{align*}
+\log N_1(q)&=\tfrac16q^2(\log q-2+o(1)) &&(q\equiv1,3\pmod6),\\
+\log N_2(q)&=\tfrac12q^2(\log q-2+o(1)) &&(q\text{ even}),\\
+\log N_3(q)&=q^2(\log q-2+o(1)).
+\end{align*}
+These are Keevash's enumeration theorem~\cite[Theorem 2.2]{KeevashCounting},
+the complete-graph case of~\cite[Theorem 1.2]{FerberJainSudakov} and its
+matching upper bound, and the permanent-bound Latin-square estimate recalled
+in the introduction of the latter paper. Ordering factors changes logarithms
+by at most $O(q\log q)$; exact formulas below use Jungnickel--Tonchev's
+conventions. Also $\log(q!)=O(q\log q)$.
+
+\smallskip
+\noindent\textbf{2. Ternary case.} Fix $c\ge1$, put $t=h-c$, $T=3^t$, and $M=3^c$.
+For $h\ge c+2$, the source condition $2\le t\le h-1$ holds. Set
+\[
+F_3(T,M)=N_1(T)^M N_3(T)^{M(M-1)/6}.
+\]
+The number of isomorphism classes of exact rank $3^h-h-1+t=v-1-c$
+is at least $A_3-B_3$, where
+\[
+A_3=\frac{F_3(T,M)}{(T!)^M|\operatorname{AGL}(c,3)|},\qquad
+B_3=\frac{F_3(T/3,3M)}{((T/3)!)^{3M-c-2}}.
+\]
+All factorial exponents and group orders are fixed as $h\to\infty$.
+Consequently
+\begin{align*}
+\log A_3&=\tfrac16M^2T^2(\log T-2+o(1)),\\
+\log B_3&=\tfrac16M^2T^2(\log T-\log3-2+o(1)),\\
+\log(A_3/B_3)&=\tfrac16M^2T^2\log3+o(T^2)>0
+\end{align*}
+for all sufficiently large $h$. This proves existence at the exact rank,
+not merely at a rank bounded above by it.
+
+\smallskip
+\noindent\textbf{3. Binary case.} Fix $a\ge1$, put $t=h-a$, $S=2^t$, $M=2^a-1$,
+and $Q=M+1=2^a$. For $h\ge a+2$ the same source condition holds. Define
+\[
+F_2(S,M)=N_1(S-1)\bigl(N_2(S)(S-1)!\bigr)^M
+N_3(S)^{M(M-1)/6}.
+\]
+The exact-rank-$2^h-h-1+t=v-a$ count is at least $A_2-B_2$, with
+\[
+A_2=\frac{F_2(S,M)}{(S-1)!(S!)^M|\operatorname{PGL}(a,2)|},\qquad
+B_2=\frac{F_2(S/2,2M+1)}{((S/2)!)^{2M-a-1}}.
+\]
+The coefficient of $S^2(\log S-2)$ in $\log A_2$ is
+$1/6+M/2+M(M-1)/6=Q^2/6$. Replacing $S$ by $S-1$ in $N_1$ and
+including the factorials changes this by only $o(S^2)$. For $B_2$ the group
+size is $S/2$ and the corresponding coefficient is $(2Q)^2/6$. Thus
+\begin{align*}
+\log A_2&=\tfrac16Q^2S^2(\log S-2+o(1)),\\
+\log B_2&=\tfrac16Q^2S^2(\log S-\log2-2+o(1)),\\
+\log(A_2/B_2)&=\tfrac16Q^2S^2\log2+o(S^2)>0
+\end{align*}
+eventually, proving the required exact-rank existence.
+
+\smallskip
+\noindent\textbf{4. Conversion to the selected group.} For $v=2^h-1$, the annihilator
+$d=(v-3)/2$ has $v_2(d)=1$ for $h\ge3$. Exact binary rank $v-a$ gives
+$a$ binary generators of $\Delt$ (the augmentation quotient has odd order).
+The primary purity in Appendix~\ref{sec:app-sts} excludes other primes,
+so $\Delt\cong(\ZZ/2)^a$. For $v=3^h$, $v_3(d)=1$ for $h\ge2$.
+By Proposition~\ref{prop:split},
+$\coker(A)\cong\ZZ/3\oplus\Delt$; thus rank $v-1-c$, whose incidence
+deficiency is $c+1$, gives exactly $c$ ternary generators of $\Delt$.
+Purity and valuation one yield $\Delt\cong(\ZZ/3)^c$.
 \end{proof}
+
+The threshold in $h$ is not made effective here. The constructions and
+exact-rank bounds are imported; the displayed moving-parameter comparison
+and its translation to the selected quotient are the deductions supplied
+in this appendix. No non-elementary or mixed-primary realization is claimed.

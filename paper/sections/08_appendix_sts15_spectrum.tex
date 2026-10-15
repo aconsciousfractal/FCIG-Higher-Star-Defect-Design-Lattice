@@ -2,9 +2,11 @@
 
 This appendix records the complete realized defect spectrum on $15$ points, the
 general squarefree trichotomy, and the ternary augmentation splitting for triple
-designs. The first two are catalog-level consequences of the main results
-together with imported $p$-ranks; the third is proved here and is used by the
+designs. The first two follow from the main results
+and classical $p$-rank theorems; the third is proved here and is used by the
 ternary case of Appendix~\ref{sec:app-er}.
+
+\subsection{The spectrum and primary purity}
 
 \begin{theorem}[the $\STS(15)$ spectrum]\label{thm:sts15}
 For a Steiner triple system on $15$ points, $\rank_{\FF_3}(A)=14$ and
@@ -26,8 +28,9 @@ vector would partition the points into three $\STS(5)$'s, impossible); the five
 binary ranks are imported from Assmus--Key~\cite{AssmusKey1992} and
 Tonchev--Weishaar~\cite{TonchevWeishaar}, and the code/affine-lattice
 classification of the $80$ systems is Sol\'e's~\cite{Sole1997}. The general
-trichotomy rests on the cited $p$-rank inputs; no firstness attaches to the
-squarefree translation.
+trichotomy translates the cited $p$-rank results into the selected quotient.
+
+\subsection{Removing the ternary augmentation factor}
 
 \begin{proposition}[ternary augmentation splitting]\label{prop:split}
 For every nontrivial $2$-$(v,3,\lambda)$ design with $v>3$, the all-ones block
@@ -49,8 +52,12 @@ $\lambda\,n_i(n_i-1)=\lambda\,n_i n_{i+1}$, so $n_{i+1}=n_i-1$ whenever $n_i>0$.
 Applied cyclically over $i\in\ZZ/3$ this forces three strict decreases
 $n_0>n_1>n_2>n_0$, impossible unless some fibre is empty; and with an empty fibre
 the surviving instances of $n_{i+1}=n_i-1$ bound $n_0+n_1+n_2\le3$ (the maximum
-is the rotation $(0,2,1)$), contradicting $v>3$. Thus no such $a$ exists, so the
-all-ones row lies outside the $\FF_3$-row span of $A$. Row-space duality then
+is the rotation $(0,2,1)$), contradicting $v>3$.
+
+Thus no such $a$ exists, so the
+all-ones row lies outside the $\FF_3$-row span of $A$.
+
+Row-space duality then
 supplies $y\in\FF_3^{\mathcal B}$ with $Ay=0$ in $\FF_3^{P}$ and
 $\mathbf 1_{\mathcal B}^{T}y=1$. Lift $y$ to $\tilde y\in\ZZ^{\mathcal B}$; then
 $A\tilde y\equiv0\pmod 3$, so $z:=A\tilde y/3\in\ZZ^{P}$ is integral, its class
